@@ -16,8 +16,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    env:
-      LANGUAGETOOL_VERSION: 5.4
     steps:
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -43,7 +41,7 @@ jobs:
           pip install pip --upgrade
           pip install flake8
           pip install black
-          if grep version pyproject.toml | grep -q "dev";
+          if grep version pyproject.toml | grep "dev";
             then pip install https://github.com/fiduswriter/fiduswriter/archive/develop.zip;
             else pip install https://github.com/fiduswriter/fiduswriter/archive/main.zip;
           fi
