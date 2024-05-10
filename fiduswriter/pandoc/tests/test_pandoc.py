@@ -259,7 +259,7 @@ class PandocTest(ChannelsLiveServerTestCase, SeleniumHelper):
 
         # image path
         image_path = os.path.join(
-            settings.PROJECT_PATH, "document/tests/uploads/image.png"
+            settings.PROJECT_PATH, "pandoc/tests/uploads/image.png"
         )
 
         # in order to select the image we send the image path in the
