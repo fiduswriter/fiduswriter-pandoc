@@ -55,7 +55,7 @@ jobs:
           retry_on: error
           command: |
             pandoc server &
-            cd ../fiduswriter
+            cd fiduswriter
             coverage run $(which fiduswriter) test pandoc
       - name: Coveralls
         run: |
