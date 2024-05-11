@@ -1,5 +1,4 @@
 from httpx import AsyncClient
-from urllib.parse import urljoin
 from asgiref.sync import async_to_sync, sync_to_async
 
 from django.conf import settings
@@ -31,5 +30,5 @@ async def export(request):
     return HttpResponse(
         response.content,
         headers={"Content-Type": "application/json"},
-        status=response.status_code
+        status=response.status_code,
     )

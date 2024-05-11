@@ -18,7 +18,6 @@ from testing.selenium_helper import SeleniumHelper
 class PandocTest(ChannelsLiveServerTestCase, SeleniumHelper):
     fixtures = ["initial_documenttemplates.json", "initial_styles.json"]
 
-
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
