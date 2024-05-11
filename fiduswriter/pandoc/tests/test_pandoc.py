@@ -1,5 +1,6 @@
 import time
 import os
+from tempfile import mkdtemp
 
 from django.conf import settings
 
@@ -17,11 +18,13 @@ from testing.selenium_helper import SeleniumHelper
 class PandocTest(ChannelsLiveServerTestCase, SeleniumHelper):
     fixtures = ["initial_documenttemplates.json", "initial_styles.json"]
 
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
         cls.base_url = cls.live_server_url
-        driver_data = cls.get_drivers(1)
+        cls.download_dir = mkdtemp()
+        driver_data = cls.get_drivers(1, cls.download_dir)
         cls.driver = driver_data["drivers"][0]
         cls.client = driver_data["clients"][0]
         cls.driver.implicitly_wait(driver_data["wait_time"])

@@ -17,14 +17,19 @@ if hasattr(settings, "PANDOC_URL"):
 @require_POST
 @async_to_sync
 async def export(request):
-    data = request.POST
-    url = urljoin(PANDOC_URL, "export/")
+    data = request.body
     async with AsyncClient() as client:
         response = await client.post(
-            url,
+            PANDOC_URL,
+            headers={
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+            },
             data=data,
             timeout=88,  # Firefox times out after 90 seconds, so we need to return before that.
         )
     return HttpResponse(
-        response.text, headers=response.headers, status=response.status_code
+        response.content,
+        headers={"Content-Type": "application/json"},
+        status=response.status_code
     )
