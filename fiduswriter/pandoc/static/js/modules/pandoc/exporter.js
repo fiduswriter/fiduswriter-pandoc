@@ -6,18 +6,16 @@ import {createSlug} from "../exporter/tools/file"
 
 
 export class PandocConversionExporter extends PandocExporter {
-    constructor(format, fileExtension, mimeType, includeBibliography, fullFileExport, ...args) {
+    constructor(format, fileExtension, mimeType, options = {fullFileExport: false, includeBibliography: false}, ...args) {
         super(...args)
         this.format = format
         this.fileExtension = fileExtension
         this.mimeType = mimeType
-        this.includeBibliography = includeBibliography
-        this.fullFileExport = fullFileExport
+        this.options = options
     }
 
     createExport() {
         // send to pandoc on server, then send converted file to user.
-        this.zipFileName = `${createSlug(this.docTitle)}.${this.format}.zip`
 
         return Promise.all(this.httpFiles.map(binaryFile =>
             get(binaryFile.url).then(
@@ -61,15 +59,26 @@ export class PandocConversionExporter extends PandocExporter {
             response => response.json()
         ).then(
             json => {
-                if (this.fullFileExport) {
-                    const blob = new window.Blob([json.output], {type: this.mimeType})
-                    return download(blob, `document.${this.fileExtension}`, this.mimeType)
+                if (this.options.fullFileExport) {
+                    const fileName = `${createSlug(this.docTitle)}.${this.fileExtension}`
+                    if (json.base64) {
+                        // convert base64 string to blob
+                        return fetch(`data:${this.mimeType};base64,${json.output}`).then(
+                            response => response.blob()
+                        ).then(
+                            blob => download(blob, fileName, this.mimeType)
+                        )
+                    } else {
+                        const blob = new window.Blob([json.output], {type: this.mimeType})
+                        return download(blob, fileName, this.mimeType)
+                    }
                 }
+                this.zipFileName = `${createSlug(this.docTitle)}.${this.format}.zip`
                 this.textFiles.push({
                     filename: `document.${this.fileExtension}`,
                     contents: json.output,
                 })
-                if (!this.includeBibliography) {
+                if (!this.options.includeBibliography) {
                     this.textFiles = this.textFiles.filter(file => file.filename !== "bibliography.bib")
                 }
                 return this.createDownload()
