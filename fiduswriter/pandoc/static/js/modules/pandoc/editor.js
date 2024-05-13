@@ -30,6 +30,28 @@ export class EditorPandoc {
                 }
             },
             {
+                title: gettext("Indesign ICML"),
+                type: "action",
+                tooltip: gettext("Export the document to an Adobe Indesign ICML file using pandoc."),
+                order: 106,
+                action: editor => {
+                    import("./exporter").then(({PandocConversionExporter}) => {
+                        const exporter = new PandocConversionExporter(
+                            "icml",
+                            "icml",
+                            "application/octet-stream",
+                            undefined,
+                            editor.getDoc({changes: "acceptAllNoInsertions"}),
+                            editor.mod.db.bibDB,
+                            editor.mod.db.imageDB,
+                            editor.app.csl,
+                            editor.docInfo.updated
+                        )
+                        exporter.init()
+                    })
+                }
+            },
+            {
                 title: gettext("Markdown"),
                 type: "menu",
                 tooltip: gettext("Export the document to a markdown file using pandoc."),
@@ -235,28 +257,7 @@ export class EditorPandoc {
                     })
                 }
             },
-            {
-                title: gettext("ICML"),
-                type: "action",
-                tooltip: gettext("Export the document to an Adobe Indesign ICML file using pandoc."),
-                order: 106,
-                action: editor => {
-                    import("./exporter").then(({PandocConversionExporter}) => {
-                        const exporter = new PandocConversionExporter(
-                            "icml",
-                            "icml",
-                            "application/octet-stream",
-                            undefined,
-                            editor.getDoc({changes: "acceptAllNoInsertions"}),
-                            editor.mod.db.bibDB,
-                            editor.mod.db.imageDB,
-                            editor.app.csl,
-                            editor.docInfo.updated
-                        )
-                        exporter.init()
-                    })
-                }
-            },
+            
         )
     }
 

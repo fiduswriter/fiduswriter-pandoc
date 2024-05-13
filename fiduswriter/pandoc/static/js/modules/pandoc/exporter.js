@@ -1,6 +1,6 @@
 import download from "downloadjs"
 
-import {jsonPost, get} from "../common"
+import {addAlert, jsonPost, get} from "../common"
 import {PandocExporter} from "../exporter/pandoc"
 import {createSlug} from "../exporter/tools/file"
 
@@ -59,6 +59,12 @@ export class PandocConversionExporter extends PandocExporter {
             response => response.json()
         ).then(
             json => {
+                if (!json.output) {
+                    if (json.error) {
+                        addAlert("error", json.error)
+                    }
+                    return
+                }
                 if (this.options.fullFileExport) {
                     const fileName = `${createSlug(this.docTitle)}.${this.fileExtension}`
                     if (json.base64) {
