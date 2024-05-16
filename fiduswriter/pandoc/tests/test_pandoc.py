@@ -389,6 +389,7 @@ class PandocTest(ChannelsLiveServerTestCase, SeleniumHelper):
         # Document with many features has been created let's see if we can
         # export it from the editor.
 
+        # Export as Markdown
         self.driver.find_element(
             By.CSS_SELECTOR,
             '.header-nav-item[title="Export of the document contents"]',
@@ -396,7 +397,23 @@ class PandocTest(ChannelsLiveServerTestCase, SeleniumHelper):
         self.driver.find_element(
             By.XPATH, '//*[normalize-space()="Markdown"]'
         ).click()
+        self.driver.find_element(
+            By.XPATH, '//*[normalize-space()="Pandoc Markdown"]'
+        ).click()
         path = os.path.join(self.download_dir, "title.markdown.zip")
+        self.wait_until_file_exists(path, self.wait_time)
+        assert os.path.isfile(path)
+        os.remove(path)
+
+        # Export as RTF
+        self.driver.find_element(
+            By.CSS_SELECTOR,
+            '.header-nav-item[title="Export of the document contents"]',
+        ).click()
+        self.driver.find_element(
+            By.XPATH, '//*[normalize-space()="Richtext"]'
+        ).click()
+        path = os.path.join(self.download_dir, "title.rtf")
         self.wait_until_file_exists(path, self.wait_time)
         assert os.path.isfile(path)
         os.remove(path)

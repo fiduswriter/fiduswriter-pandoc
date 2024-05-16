@@ -146,6 +146,28 @@ export class EditorPandoc {
                         }
                     },
                     {
+                        title: gettext("Pandoc Markdown"),
+                        type: "action",
+                        tooltip: gettext("Export the document to a Pandoc Markdown file using pandoc."),
+                        order: 1,
+                        action: editor => {
+                            import("./exporter").then(({PandocConversionExporter}) => {
+                                const exporter = new PandocConversionExporter(
+                                    "markdown",
+                                    "md",
+                                    "text/markdown",
+                                    {includeBibliography: true},
+                                    editor.getDoc({changes: "acceptAllNoInsertions"}),
+                                    editor.mod.db.bibDB,
+                                    editor.mod.db.imageDB,
+                                    editor.app.csl,
+                                    editor.docInfo.updated
+                                )
+                                exporter.init()
+                            })
+                        }
+                    },
+                    {
                         title: gettext("PHP Markdown Extra"),
                         type: "action",
                         tooltip: gettext("Export the document to a PHP Markdown Extra file using pandoc."),
