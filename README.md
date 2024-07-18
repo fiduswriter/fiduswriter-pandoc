@@ -36,3 +36,13 @@ python manage.py transpile
 ```
 
 5. (Re)start your Fidus Writer server.
+
+## Running pandoc as a server
+
+To run pandoc as a server just type:
+
+```
+pandoc server
+```
+
+This will start it in server mode running on port 3030.

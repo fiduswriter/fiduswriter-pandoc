@@ -395,6 +395,9 @@ class PandocTest(ChannelsLiveServerTestCase, SeleniumHelper):
             '.header-nav-item[title="Export of the document contents"]',
         ).click()
         self.driver.find_element(
+            By.XPATH, '//*[normalize-space()="Other formats"]'
+        ).click()
+        self.driver.find_element(
             By.XPATH, '//*[normalize-space()="Markdown"]'
         ).click()
         self.driver.find_element(
@@ -409,6 +412,9 @@ class PandocTest(ChannelsLiveServerTestCase, SeleniumHelper):
         self.driver.find_element(
             By.CSS_SELECTOR,
             '.header-nav-item[title="Export of the document contents"]',
+        ).click()
+        self.driver.find_element(
+            By.XPATH, '//*[normalize-space()="Other formats"]'
         ).click()
         self.driver.find_element(
             By.XPATH, '//*[normalize-space()="Richtext"]'
