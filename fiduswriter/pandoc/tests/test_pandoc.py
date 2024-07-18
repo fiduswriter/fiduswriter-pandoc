@@ -15,7 +15,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from testing.selenium_helper import SeleniumHelper
 
 
-class PandocTest(ChannelsLiveServerTestCase, SeleniumHelper):
+class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
     fixtures = ["initial_documenttemplates.json", "initial_styles.json"]
 
     @classmethod
