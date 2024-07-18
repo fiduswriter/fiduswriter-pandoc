@@ -39,9 +39,6 @@ class PandocTest(ChannelsLiveServerTestCase, SeleniumHelper):
             username="Yeti", email="yeti@snowman.com", passtext="otter1"
         )
 
-    def tearDown(self):
-        self.leave_site(self.driver)
-
     def test_export(self):
         self.login_user(self.user, self.driver, self.client)
         self.driver.get(self.base_url + "/")
