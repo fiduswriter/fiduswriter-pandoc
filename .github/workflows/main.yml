@@ -18,10 +18,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: nanasess/setup-chromedriver@master
       - name: Install dependencies
         run: |
@@ -48,7 +48,7 @@ jobs:
           coverage run $(which fiduswriter) setup --no-static
           $(which fiduswriter) lint
       - name: Run test pandoc
-        uses: nick-invision/retry@v2
+        uses: nick-invision/retry@v3
         with:
           timeout_minutes: 8
           max_attempts: 3
@@ -57,6 +57,12 @@ jobs:
             pandoc server &
             cd fiduswriter
             coverage run $(which fiduswriter) test pandoc
+      - name: Upload failed test screenshots
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v4.3.4
+        with:
+          name: failure-artifacts
+          path: ${{ github.workspace }}/fiduswriter/screenshots/
       - name: Coveralls
         run: |
           cd fiduswriter
