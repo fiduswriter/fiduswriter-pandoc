@@ -397,12 +397,16 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         self.driver.find_element(
             By.XPATH, '//*[normalize-space()="Markdown"]'
         ).click()
+
         self.driver.find_element(
             By.XPATH, '//*[normalize-space()="Pandoc Markdown"]'
         ).click()
         path = os.path.join(self.download_dir, "title.markdown.zip")
+        print(path)
+        print(os.listdir(self.download_dir))
         self.wait_until_file_exists(path, self.wait_time)
         time.sleep(20)
+        print(os.listdir(self.download_dir))
         assert os.path.isfile(path)
         os.remove(path)
 
