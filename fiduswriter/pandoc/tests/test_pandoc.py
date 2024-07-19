@@ -402,6 +402,7 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         ).click()
         path = os.path.join(self.download_dir, "title.markdown.zip")
         self.wait_until_file_exists(path, self.wait_time)
+        time.sleep(20)
         assert os.path.isfile(path)
         os.remove(path)
 
@@ -418,5 +419,6 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         ).click()
         path = os.path.join(self.download_dir, "title.rtf")
         self.wait_until_file_exists(path, self.wait_time)
+        time.sleep(20)
         assert os.path.isfile(path)
         os.remove(path)
