@@ -18,6 +18,7 @@ if hasattr(settings, "PANDOC_URL"):
 async def export(request):
     data = request.body
     async with AsyncClient() as client:
+        print("Sending request to pandoc server: ", PANDOC_URL)
         response = await client.post(
             PANDOC_URL,
             headers={
