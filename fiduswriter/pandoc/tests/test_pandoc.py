@@ -23,6 +23,8 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         super().setUpClass()
         cls.base_url = cls.live_server_url
         cls.download_dir = mkdtemp()
+        print("DOWNLOAD DIR")
+        print(cls.download_dir)
         driver_data = cls.get_drivers(1, cls.download_dir)
         cls.driver = driver_data["drivers"][0]
         cls.client = driver_data["clients"][0]
@@ -405,7 +407,6 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         print(path)
         print(os.listdir(self.download_dir))
         self.wait_until_file_exists(path, self.wait_time)
-        time.sleep(20)
         print(os.listdir(self.download_dir))
         assert os.path.isfile(path)
         os.remove(path)
@@ -423,6 +424,5 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         ).click()
         path = os.path.join(self.download_dir, "title.rtf")
         self.wait_until_file_exists(path, self.wait_time)
-        time.sleep(20)
         assert os.path.isfile(path)
         os.remove(path)
