@@ -403,7 +403,7 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         self.driver.find_element(
             By.XPATH, '//*[normalize-space()="Pandoc Markdown"]'
         ).click()
-        print('-----------------')
+        print("-----------------")
         path = os.path.join(self.download_dir, "title.markdown.zip")
         print(path)
         print(self.download_dir)

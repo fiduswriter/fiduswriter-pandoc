@@ -9,6 +9,7 @@ venv/
 .envrc
 .direnv/
 fiduswriter/.transpile
+fiduswriter/.coverage
 fiduswriter/media
 fiduswriter/static-libs
 fiduswriter/static-transpile
