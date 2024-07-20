@@ -1,8 +1,6 @@
 import time
 import os
 from tempfile import mkdtemp
-from pandoc import views
-from pandoc import urls
 from django.conf import settings
 
 from channels.testing import ChannelsLiveServerTestCase
@@ -24,8 +22,6 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         super().setUpClass()
         cls.base_url = cls.live_server_url
         cls.download_dir = mkdtemp()
-        print("DOWNLOAD DIR")
-        print(cls.download_dir)
         driver_data = cls.get_drivers(1, cls.download_dir)
         cls.driver = driver_data["drivers"][0]
         cls.client = driver_data["clients"][0]
@@ -43,8 +39,6 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         )
 
     def test_export(self):
-        print(views.PANDOC_URL)
-        print(urls.urlpatterns)
         self.login_user(self.user, self.driver, self.client)
         self.driver.get(self.base_url + "/")
         # Create chapter one doc
@@ -406,13 +400,8 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         self.driver.find_element(
             By.XPATH, '//*[normalize-space()="Pandoc Markdown"]'
         ).click()
-        print("-----------------")
         path = os.path.join(self.download_dir, "title.markdown.zip")
-        print(path)
-        print(self.download_dir)
-        print(os.listdir(self.download_dir))
         self.wait_until_file_exists(path, self.wait_time)
-        print(os.listdir(self.download_dir))
         assert os.path.isfile(path)
         os.remove(path)
 
