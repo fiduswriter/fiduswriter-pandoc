@@ -1,7 +1,8 @@
 import time
 import os
 from tempfile import mkdtemp
-
+from pandoc import views
+from pandoc import urls
 from django.conf import settings
 
 from channels.testing import ChannelsLiveServerTestCase
@@ -42,9 +43,7 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         )
 
     def test_export(self):
-        from pandoc import views
         print(views.PANDOC_URL)
-        from pandoc import urls
         print(urls.urlpatterns)
         self.login_user(self.user, self.driver, self.client)
         self.driver.get(self.base_url + "/")
