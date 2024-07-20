@@ -16,9 +16,9 @@ if hasattr(settings, "PANDOC_URL"):
 @require_POST
 @async_to_sync
 async def export(request):
+    print("Sending request to pandoc server: ", PANDOC_URL)
     data = request.body
     async with AsyncClient() as client:
-        print("Sending request to pandoc server: ", PANDOC_URL)
         response = await client.post(
             PANDOC_URL,
             headers={
