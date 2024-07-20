@@ -403,8 +403,10 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         self.driver.find_element(
             By.XPATH, '//*[normalize-space()="Pandoc Markdown"]'
         ).click()
+        print('-----------------')
         path = os.path.join(self.download_dir, "title.markdown.zip")
         print(path)
+        print(self.download_dir)
         print(os.listdir(self.download_dir))
         self.wait_until_file_exists(path, self.wait_time)
         print(os.listdir(self.download_dir))
