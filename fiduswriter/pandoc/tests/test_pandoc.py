@@ -1,7 +1,6 @@
 import time
 import os
 from tempfile import mkdtemp
-
 from django.conf import settings
 
 from channels.testing import ChannelsLiveServerTestCase
@@ -397,6 +396,7 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         self.driver.find_element(
             By.XPATH, '//*[normalize-space()="Markdown"]'
         ).click()
+
         self.driver.find_element(
             By.XPATH, '//*[normalize-space()="Pandoc Markdown"]'
         ).click()

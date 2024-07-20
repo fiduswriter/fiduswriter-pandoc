@@ -36,7 +36,7 @@ export class PandocConversionExporter extends PandocExporter {
             binaryFiles => {
                 const files = this.textFiles.concat(binaryFiles).reduce(
                     (acc, file) => {
-                        acc[file.filename] = file.contents
+                        acc[file.filename] = btoa(file.contents)
                         return acc
                     },
                     {}
