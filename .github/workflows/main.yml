@@ -30,7 +30,7 @@ jobs:
           wget https://github.com/jgm/pandoc/releases/download/3.1.13/pandoc-3.1.13-1-amd64.deb -O pandoc.deb
           sudo dpkg -i pandoc.deb
           cd fiduswriter
-          mv ../ci/configuration.py ./
+          mv ../.github/configuration.py ./
           pip install requests[security]
           pip install coverage
           pip install coveralls
@@ -54,7 +54,7 @@ jobs:
           max_attempts: 3
           retry_on: error
           command: |
-            pandoc server &
+            pandoc server --port 9047 &
             cd fiduswriter
             coverage run $(which fiduswriter) test pandoc
       - name: Upload failed test screenshots
