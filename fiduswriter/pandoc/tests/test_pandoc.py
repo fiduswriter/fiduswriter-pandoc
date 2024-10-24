@@ -82,18 +82,18 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
             "[aria-describedby=configure-copyright] button.fw-dark",
         ).click()
 
-        self.driver.find_element(By.CSS_SELECTOR, ".article-title").click()
-        self.driver.find_element(By.CSS_SELECTOR, ".article-title").send_keys(
+        self.driver.find_element(By.CSS_SELECTOR, ".doc-title").click()
+        self.driver.find_element(By.CSS_SELECTOR, ".doc-title").send_keys(
             "Title"
         )
-        self.driver.find_element(By.CSS_SELECTOR, ".article-body").click()
-        self.driver.find_element(By.CSS_SELECTOR, ".article-body").send_keys(
+        self.driver.find_element(By.CSS_SELECTOR, ".doc-body").click()
+        self.driver.find_element(By.CSS_SELECTOR, ".doc-body").send_keys(
             "No styling"
         )
         self.driver.find_element(
             By.CSS_SELECTOR, "button[title=Strong]"
         ).click()
-        self.driver.find_element(By.CSS_SELECTOR, ".article-body").send_keys(
+        self.driver.find_element(By.CSS_SELECTOR, ".doc-body").send_keys(
             "strong"
         )
         self.driver.find_element(
@@ -102,39 +102,39 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         self.driver.find_element(
             By.CSS_SELECTOR, "button[title=Emphasis]"
         ).click()
-        self.driver.find_element(By.CSS_SELECTOR, ".article-body").send_keys(
+        self.driver.find_element(By.CSS_SELECTOR, ".doc-body").send_keys(
             "emph"
         )
         self.driver.find_element(
             By.CSS_SELECTOR, "button[title=Emphasis]"
         ).click()
-        self.driver.find_element(By.CSS_SELECTOR, ".article-body").send_keys(
+        self.driver.find_element(By.CSS_SELECTOR, ".doc-body").send_keys(
             Keys.ENTER
         )
         self.driver.find_element(By.CSS_SELECTOR, ".fa-list-ol").click()
-        self.driver.find_element(By.CSS_SELECTOR, ".article-body").send_keys(
+        self.driver.find_element(By.CSS_SELECTOR, ".doc-body").send_keys(
             "ordered list"
         )
-        self.driver.find_element(By.CSS_SELECTOR, ".article-body").send_keys(
+        self.driver.find_element(By.CSS_SELECTOR, ".doc-body").send_keys(
             Keys.ENTER
         )
         self.driver.find_element(By.CSS_SELECTOR, ".fa-list-ul").click()
-        self.driver.find_element(By.CSS_SELECTOR, ".article-body").send_keys(
+        self.driver.find_element(By.CSS_SELECTOR, ".doc-body").send_keys(
             "bullet list"
         )
-        self.driver.find_element(By.CSS_SELECTOR, ".article-body").send_keys(
+        self.driver.find_element(By.CSS_SELECTOR, ".doc-body").send_keys(
             Keys.ENTER
         )
-        self.driver.find_element(By.CSS_SELECTOR, ".article-body").send_keys(
+        self.driver.find_element(By.CSS_SELECTOR, ".doc-body").send_keys(
             Keys.ENTER
         )
         self.driver.find_element(
             By.CSS_SELECTOR, "button[title=Blockquote]"
         ).click()
-        self.driver.find_element(By.CSS_SELECTOR, ".article-body").send_keys(
+        self.driver.find_element(By.CSS_SELECTOR, ".doc-body").send_keys(
             "block quote"
         )
-        self.driver.find_element(By.CSS_SELECTOR, ".article-body").send_keys(
+        self.driver.find_element(By.CSS_SELECTOR, ".doc-body").send_keys(
             Keys.ENTER
         )
         self.driver.find_element(By.CSS_SELECTOR, ".fa-link").click()
@@ -154,7 +154,7 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         self.driver.find_element(
             By.CSS_SELECTOR, ".footnote-container > p"
         ).send_keys("A footnote")
-        self.driver.find_element(By.CSS_SELECTOR, ".article-body").click()
+        self.driver.find_element(By.CSS_SELECTOR, ".doc-body").click()
         self.driver.find_element(By.CSS_SELECTOR, ".fa-book").click()
         # click on 'Register new source' button
         register_new_source = WebDriverWait(self.driver, self.wait_time).until(
@@ -225,7 +225,7 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         self.driver.find_element(
             By.CSS_SELECTOR, 'button[title="Horizontal line"]'
         ).click()
-        self.driver.find_element(By.CSS_SELECTOR, ".article-body").send_keys(
+        self.driver.find_element(By.CSS_SELECTOR, ".doc-body").send_keys(
             Keys.DOWN
         )
         # Insert figure
@@ -318,7 +318,7 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
 
         caption = WebDriverWait(self.driver, self.wait_time).until(
             EC.presence_of_element_located(
-                (By.CSS_SELECTOR, "div.article-body figure figcaption")
+                (By.CSS_SELECTOR, "div.doc-body figure figcaption")
             )
         )
         caption.click()
@@ -375,7 +375,7 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         self.driver.find_element(By.CSS_SELECTOR, "button.fw-dark").click()
         caption = WebDriverWait(self.driver, self.wait_time).until(
             EC.presence_of_element_located(
-                (By.CSS_SELECTOR, "div.article-body table caption")
+                (By.CSS_SELECTOR, "div.doc-body table caption")
             )
         )
 
