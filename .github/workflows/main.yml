@@ -67,7 +67,7 @@ jobs:
         uses: actions/upload-artifact@v4.3.4
         with:
           name: failure-artifacts
-        path: ${{ github.workspace }}/fiduswriter/screenshots/
+          path: ${{ github.workspace }}/fiduswriter/screenshots/
       - name: Coveralls
         run: |
           cd fiduswriter
