@@ -5,10 +5,10 @@ on:
     branches:
       - main
       - develop
-    pull_request:
-      branches:
-        - main
-        - develop
+  pull_request:
+    branches:
+      - main
+      - develop
 # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch: {}
 
@@ -72,8 +72,8 @@ jobs:
         run: |
           cd fiduswriter
           coveralls --service=github
-          env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   finish:
     needs: test
     runs-on: ubuntu-latest
