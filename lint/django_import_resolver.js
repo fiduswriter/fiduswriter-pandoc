@@ -5,11 +5,15 @@ const {execSync} = require("child_process")
 
 function getFidusWriterPath() {
     try {
-        return execSync(
+        const fwPath = execSync(
             "python -c \"import fiduswriter; print(next(filter(lambda path: '/site-packages/' in path, fiduswriter.__path__), ''))\""
         )
             .toString()
             .trim()
+        if (fwPath) {
+            return fwPath
+        }
+        throw new Error("Fidus Writer not found")
     } catch (error) {
         console.error(
             "Failed to find Fidus Writer installation:",
