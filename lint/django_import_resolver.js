@@ -1,15 +1,20 @@
 const path = require("path")
 const fs = require("fs")
 const acorn = require("acorn")
-const { execSync } = require('child_process')
+const {execSync} = require("child_process")
 
 function getFidusWriterPath() {
     try {
         return execSync(
-            'python -c "import fiduswriter; print(next(filter(lambda path: \'/site-packages/\' in path, fiduswriter.__path__), \'\'))"'
-        ).toString().trim()
+            "python -c \"import fiduswriter; print(next(filter(lambda path: '/site-packages/' in path, fiduswriter.__path__), ''))\""
+        )
+            .toString()
+            .trim()
     } catch (error) {
-        console.error('Failed to find Fidus Writer installation:', error.message)
+        console.error(
+            "Failed to find Fidus Writer installation:",
+            error.message
+        )
         process.exit(1)
     }
 }
@@ -48,9 +53,7 @@ function resolveFilelocation(source, file, appsPaths) {
     const returnValue = {found: false, path: null}
     const fullPath = path.resolve(path.dirname(file), source)
 
-    if (
-        fullPath.includes("/plugins/")
-    ) {
+    if (fullPath.includes("/plugins/")) {
         returnValue.found = true
         returnValue.path = null
         return returnValue
