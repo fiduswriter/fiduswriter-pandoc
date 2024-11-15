@@ -1,9 +1,31 @@
+import {getJson} from "../common"
+
 export class EditorPandoc {
     constructor(editor) {
         this.editor = editor
+
+        this.pandocAvailable = null
     }
 
     init() {
+        this.checkPandoc().then(() => {
+            if (this.pandocAvailable) {
+                this.modifyMenu()
+            }
+        })
+    }
+
+    checkPandoc() {
+        if (this.pandocAvailable !== null) {
+            return Promise.resolve(this.pandocAvailable)
+        }
+
+        return getJson("/api/pandoc/available/").then(({available}) => {
+            this.pandocAvailable = available
+        })
+    }
+
+    modifyMenu() {
         const exportMenu = this.editor.menu.headerbarModel.content.find(
             menu => menu.id === "export"
         )

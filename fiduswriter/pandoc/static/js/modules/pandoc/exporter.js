@@ -3,6 +3,7 @@ import download from "downloadjs"
 import {addAlert, get, jsonPost} from "../common"
 import {PandocExporter} from "../exporter/pandoc"
 import {createSlug} from "../exporter/tools/file"
+import {fileToBase64} from "./helpers"
 
 export class PandocConversionExporter extends PandocExporter {
     constructor(
@@ -26,20 +27,10 @@ export class PandocConversionExporter extends PandocExporter {
             this.httpFiles.map(binaryFile =>
                 get(binaryFile.url)
                     .then(response => response.blob())
-                    .then(
-                        blob =>
-                            new Promise((resolve, reject) => {
-                                const reader = new window.FileReader()
-                                reader.onerror = reject
-                                reader.onload = () => {
-                                    resolve(reader.result)
-                                }
-                                reader.readAsDataURL(blob)
-                            })
-                    )
-                    .then(base64Object =>
+                    .then(blob => fileToBase64(blob))
+                    .then(base64String =>
                         Promise.resolve({
-                            contents: base64Object.split("base64,")[1],
+                            contents: base64String,
                             filename: binaryFile.filename
                         })
                     )
