@@ -6,9 +6,7 @@ export const fileToBase64 = file =>
         reader.readAsDataURL(file)
     })
 
-
 export const fileToString = (file, binary = false) => {
-
     if (binary) {
         return fileToBase64(file)
     } else {
