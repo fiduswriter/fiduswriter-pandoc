@@ -2,16 +2,17 @@ import {jsonPost} from "../common"
 import {PandocImporter} from "../importer/pandoc"
 
 import {formats} from "./constants"
-import {fileToBase64} from "./helpers"
+import {fileToString} from "./helpers"
 
 export class PandocConversionImporter extends PandocImporter {
     init() {
         return this.getTemplate().then(() => {
-            if (this.file.type === "application/json") {
-                return this.importJSON()
-            } else if (this.file.type === "application/zip") {
-                return this.importZip()
-            } else if (formats.includes(this.file.name.split(".").pop())) {
+            if (
+                formats
+                    .map(format => format[1])
+                    .flat()
+                    .includes(this.file.name.split(".").pop())
+            ) {
                 return this.convertAndImport()
             } else {
                 this.output.statusText = gettext("Unknown file type")
@@ -21,14 +22,17 @@ export class PandocConversionImporter extends PandocImporter {
     }
 
     convertAndImport() {
-        const from = this.file.name.split(".").pop()
-        return fileToBase64(this.file)
-            .then(base64String => {
+        const fromExtension = this.file.name.split(".").pop()
+        const format = formats.find(format => format[1].includes(fromExtension))
+        const from = format[2]
+        const binary = format[3]
+        return fileToString(this.file, binary)
+            .then(text => {
                 return jsonPost("/api/pandoc/export/", {
                     from,
                     to: "json",
                     standalone: true,
-                    text: base64String
+                    text
                 })
             })
             .then(response => response.json())
@@ -37,7 +41,11 @@ export class PandocConversionImporter extends PandocImporter {
                     this.output.statusText = json.error
                     return this.output
                 }
-                return this.handlePandocJson(json.output)
+                return this.handlePandocJson(
+                    json.output,
+                    this.additionalFiles?.images,
+                    this.additionalFiles?.bibliography
+                )
             })
     }
 }
