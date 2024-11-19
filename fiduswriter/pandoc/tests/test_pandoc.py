@@ -420,3 +420,51 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         self.wait_until_file_exists(path, self.wait_time)
         assert os.path.isfile(path)
         os.remove(path)
+
+    def test_import(self):
+        self.login_user(self.user, self.driver, self.client)
+        self.driver.get(self.base_url + "/")
+        # Import an DOCX file
+        # Click on button with title "Import document"
+        self.driver.find_element(
+            By.CSS_SELECTOR, "button.fw-text-menu[title='Import document']"
+        ).click()
+
+        # Select file to upload with ID import-external-btn
+        # self.driver.find_element(By.ID, "import-external-btn").click()
+
+        docx_path = os.path.join(
+            settings.PROJECT_PATH, "pandoc/tests/uploads/import.docx"
+        )
+        # Wait for the file input to be present
+        upload_file_input = WebDriverWait(self.driver, self.wait_time).until(
+            EC.presence_of_element_located((By.ID, "external-uploader"))
+        )
+        upload_file_input.send_keys(docx_path)
+
+        # Click on "Import" button
+        self.driver.find_element(By.CSS_SELECTOR, "button.fw-dark").click()
+        # Wait for the document to be imported
+        WebDriverWait(self.driver, self.wait_time).until(
+            EC.presence_of_element_located(
+                (By.CSS_SELECTOR, "a.fw-data-table-title")
+            )
+        )
+        # Check if the document has been imported
+        self.assertEqual(
+            self.driver.find_element(
+                By.CSS_SELECTOR, "a.fw-data-table-title"
+            ).text,
+            "Imported document",
+        )
+        # Enter document
+        self.driver.find_element(
+            By.CSS_SELECTOR, "a.fw-data-table-title"
+        ).click()
+
+        time.sleep(2)
+        # Check if the document loads in the editor
+        self.assertEqual(
+            self.driver.find_element(By.CSS_SELECTOR, "div.doc-title").text,
+            "Imported document",
+        )
