@@ -1,5 +1,4 @@
 from httpx import AsyncClient, HTTPError
-from asgiref.sync import async_to_sync, sync_to_async
 
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
@@ -14,10 +13,8 @@ if hasattr(settings, "PANDOC_URL"):
         PANDOC_URL += "/"
 
 
-@sync_to_async
 @login_required
 @require_POST
-@async_to_sync
 async def export(request):
     data = request.body
     async with AsyncClient() as client:
