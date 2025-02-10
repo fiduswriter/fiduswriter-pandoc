@@ -427,7 +427,8 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         # Import an DOCX file
         # Click on button with title "Import document"
         self.driver.find_element(
-            By.CSS_SELECTOR, "button.fw-text-menu[title='Import document']"
+            By.CSS_SELECTOR,
+            "button.fw-text-menu[title='Import document (Alt-i)']",
         ).click()
 
         # Select file to upload with ID import-external-btn
