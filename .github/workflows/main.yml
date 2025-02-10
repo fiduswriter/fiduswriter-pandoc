@@ -78,7 +78,7 @@ jobs:
           path: ${{ github.workspace }}/fiduswriter/screenshots/
       - name: Coveralls
         run: |
-          cd
+          cd fiduswriter
           coverage combine
           coveralls --service=github
     env:
