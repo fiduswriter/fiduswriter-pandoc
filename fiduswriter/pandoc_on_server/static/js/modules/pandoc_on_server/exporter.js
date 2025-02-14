@@ -44,7 +44,7 @@ export class PandocConversionExporter extends PandocExporter {
                         return acc
                     }, {})
                 const hasBibliography = files.hasOwnProperty("bibliography.bib")
-                return jsonPost("/api/pandoc/export/", {
+                return jsonPost("/api/pandoc_on_server/export/", {
                     text: JSON.stringify(this.conversion.json),
                     from: "json",
                     to: this.format,

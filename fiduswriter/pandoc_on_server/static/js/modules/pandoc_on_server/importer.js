@@ -28,7 +28,7 @@ export class PandocConversionImporter extends PandocImporter {
         const binary = format[3]
         return fileToString(this.file, binary)
             .then(text => {
-                return jsonPost("/api/pandoc/export/", {
+                return jsonPost("/api/pandoc_on_server/export/", {
                     from,
                     to: "json",
                     standalone: true,

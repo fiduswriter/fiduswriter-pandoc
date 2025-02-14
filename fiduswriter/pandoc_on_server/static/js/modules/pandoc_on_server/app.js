@@ -28,8 +28,10 @@ export class AppPandoc {
             return Promise.resolve(this.pandocAvailable)
         }
 
-        return getJson("/api/pandoc/available/").then(({available}) => {
-            this.pandocAvailable = available
-        })
+        return getJson("/api/pandoc_on_server/available/").then(
+            ({available}) => {
+                this.pandocAvailable = available
+            }
+        )
     }
 }
