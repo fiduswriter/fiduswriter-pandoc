@@ -8,28 +8,12 @@ import {registerImporter} from "../importer/register"
 export class AppPandoc {
     constructor(app) {
         this.app = app
-
-        this.pandocAvailable = null
     }
 
     init() {
-        this.checkPandoc().then(() => {
-            if (this.pandocAvailable) {
-                registerImporter(
-                    formats.map(format => [format[0], format[1]]),
-                    PandocConversionImporter
-                )
-            }
-        })
-    }
-
-    checkPandoc() {
-        if (this.pandocAvailable !== null) {
-            return Promise.resolve(this.pandocAvailable)
-        }
-
-        return getJson("/api/pandoc/available/").then(({available}) => {
-            this.pandocAvailable = available
-        })
+        registerImporter(
+            formats.map(format => [format[0], format[1]]),
+            PandocConversionImporter
+        )
     }
 }

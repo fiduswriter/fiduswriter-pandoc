@@ -1,0 +1,5 @@
+{
+    dependencies: {
+       "pandoc-wasm": "johanneswilm/pandoc-wasm#fce3e45"
+    }
+}

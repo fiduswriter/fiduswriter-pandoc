@@ -1,10 +1,8 @@
-import {pandoc} from "pandoc-wasm"
-
 import {jsonPost} from "../common"
 import {PandocImporter} from "../importer/pandoc"
-import {ZipAnalyzer} from "../importer/zip_analyzer"
+
 import {formats} from "./constants"
-import {fileToString, flattenDirectory} from "./helpers"
+import {fileToString} from "./helpers"
 
 export class PandocConversionImporter extends PandocImporter {
     init() {
@@ -27,21 +25,27 @@ export class PandocConversionImporter extends PandocImporter {
         const fromExtension = this.file.name.split(".").pop()
         const format = formats.find(format => format[1].includes(fromExtension))
         const from = format[2]
-        const binaryZip = format[3]
-        const inData = binaryZip ? this.file : fileToString(this.file)
-
-        return pandoc(`-s -f ${from} -t json --extract-media=.`, inData).then(
-            ({out, mediaFiles}) => {
-                const images = Object.assign(
-                    this.additionalFiles?.images || {},
-                    flattenDirectory(mediaFiles)
-                )
+        const binary = format[3]
+        return fileToString(this.file, binary)
+            .then(text => {
+                return jsonPost("/api/pandoc/export/", {
+                    from,
+                    to: "json",
+                    standalone: true,
+                    text
+                })
+            })
+            .then(response => response.json())
+            .then(json => {
+                if (json.error) {
+                    this.output.statusText = json.error
+                    return this.output
+                }
                 return this.handlePandocJson(
-                    out,
-                    images,
+                    json.output,
+                    this.additionalFiles?.images,
                     this.additionalFiles?.bibliography
                 )
-            }
-        )
+            })
     }
 }
