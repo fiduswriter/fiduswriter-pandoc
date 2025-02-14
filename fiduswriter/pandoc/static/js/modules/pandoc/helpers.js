@@ -14,7 +14,7 @@ export const flattenDirectory = rootMap => {
         for (const [key, value] of currentMap) {
             if (value instanceof Map) {
                 processMap(value, `${currentPath}${key}/`)
-            } else if (value instanceof Blob) {
+            } else {
                 result[`${currentPath}${key}`] = value
             }
         }
@@ -24,7 +24,7 @@ export const flattenDirectory = rootMap => {
     for (const [key, value] of rootMap) {
         if (value instanceof Map) {
             processMap(value, `./${key}/`)
-        } else if (value instanceof Blob) {
+        } else {
             result[`./${key}`] = value
         }
     }
