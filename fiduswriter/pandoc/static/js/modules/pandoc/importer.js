@@ -1,5 +1,3 @@
-import {pandoc} from "pandoc-wasm"
-
 import {jsonPost} from "../common"
 import {PandocImporter} from "../importer/pandoc"
 import {ZipAnalyzer} from "../importer/zip_analyzer"
@@ -30,8 +28,11 @@ export class PandocConversionImporter extends PandocImporter {
         const binaryZip = format[3]
         const inData = binaryZip ? this.file : fileToString(this.file)
 
-        return pandoc(`-s -f ${from} -t json --extract-media=.`, inData).then(
-            ({out, mediaFiles}) => {
+        return import("pandoc-wasm")
+            .then(({pandoc}) =>
+                pandoc(`-s -f ${from} -t json --extract-media=.`, inData)
+            )
+            .then(({out, mediaFiles}) => {
                 const images = Object.assign(
                     this.additionalFiles?.images || {},
                     flattenDirectory(mediaFiles)
@@ -41,7 +42,6 @@ export class PandocConversionImporter extends PandocImporter {
                     images,
                     this.additionalFiles?.bibliography
                 )
-            }
-        )
+            })
     }
 }
