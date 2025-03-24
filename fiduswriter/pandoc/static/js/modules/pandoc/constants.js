@@ -6,7 +6,7 @@ export const formats = [
     // the second element is the file extensions.
     // the third element is the format as used by pandoc,
     // the fourth element is whether it is a binary zip format.
-    ["DOCX", ["docx"], "docx", true],
+    //["DOCX", ["docx"], "docx", true],
     ["LaTeX", ["tex"], "latex", false],
     ["Markdown", ["md"], "markdown", false],
     ["JATS XML", ["xml"], "jats", false],
