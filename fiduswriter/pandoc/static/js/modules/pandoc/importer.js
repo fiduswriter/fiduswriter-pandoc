@@ -28,7 +28,7 @@ export class PandocConversionImporter extends PandocImporter {
         const binaryZip = format[3]
         const inData = binaryZip ? this.file : fileToString(this.file)
 
-        return import("pandoc-wasm")
+        return import("wasm-pandoc")
             .then(({pandoc}) =>
                 pandoc(`-s -f ${from} -t json --extract-media=.`, inData)
             )

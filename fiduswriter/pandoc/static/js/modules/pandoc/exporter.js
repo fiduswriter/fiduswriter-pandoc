@@ -1,5 +1,5 @@
 import download from "downloadjs"
-import {pandoc} from "pandoc-wasm"
+import {pandoc} from "wasm-pandoc"
 
 import {addAlert, get, jsonPost} from "../common"
 import {PandocExporter} from "../exporter/pandoc"
