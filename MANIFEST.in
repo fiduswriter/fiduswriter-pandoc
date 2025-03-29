@@ -1,5 +1,5 @@
 include LICENSE
-include README.rst
+include README.md
 recursive-include fiduswriter/pandoc/static *
 recursive-include fiduswriter/pandoc/locale *
-recursive-include fiduswriter/pandoc/package.json5
+include fiduswriter/pandoc/package.json5

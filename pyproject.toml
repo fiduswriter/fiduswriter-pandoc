@@ -7,7 +7,7 @@ name = "fiduswriter-pandoc"
 description = "A Fidus Writer plugin to connect to Pandoc."
 version = "4.0.1"
 readme = "README.md"
-license = {text = "AGPL-3.0-or-later"}
+license = "AGPL-3.0-or-later"
 authors = [
   {email = "johannes@fiduswriter.org", name = "Johannes Wilm"},
 ]
