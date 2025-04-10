@@ -5,43 +5,42 @@ import {formats} from "./constants"
 import {fileToString, flattenDirectory} from "./helpers"
 
 export class PandocConversionImporter extends PandocImporter {
-    init() {
-        return this.getTemplate().then(() => {
-            if (
-                formats
-                    .map(format => format[1])
-                    .flat()
-                    .includes(this.file.name.split(".").pop())
-            ) {
-                return this.convertAndImport()
-            } else {
-                this.output.statusText = gettext("Unknown file type")
-                return Promise.resolve(this.output)
-            }
-        })
+    async init() {
+        await this.getTemplate()
+        if (
+            formats
+                .map(format => format[1])
+                .flat()
+                .includes(this.file.name.split(".").pop())
+        ) {
+            return await this.convertAndImport()
+        } else {
+            this.output.statusText = gettext("Unknown file type")
+            return this.output
+        }
     }
 
-    convertAndImport() {
-        const fromExtension = this.file.name.split(".").pop()
+    async convertAndImport() {
+        const nameParts = this.file.name.split(".")
+        const fromExtension = nameParts.pop()
+        this.title = nameParts.join(".")
         const format = formats.find(format => format[1].includes(fromExtension))
         const from = format[2]
         const binaryZip = format[3]
-        const inData = binaryZip ? this.file : fileToString(this.file)
-
-        return import("wasm-pandoc")
-            .then(({pandoc}) =>
-                pandoc(`-s -f ${from} -t json --extract-media=.`, inData)
-            )
-            .then(({out, mediaFiles}) => {
-                const images = Object.assign(
-                    this.additionalFiles?.images || {},
-                    flattenDirectory(mediaFiles)
-                )
-                return this.handlePandocJson(
-                    out,
-                    images,
-                    this.additionalFiles?.bibliography
-                )
-            })
+        const inData = binaryZip ? this.file : await fileToString(this.file)
+        const {pandoc} = await import("wasm-pandoc")
+        const {out, mediaFiles} = await pandoc(
+            `-s -f ${from} -t json --extract-media=.`,
+            inData
+        )
+        const images = Object.assign(
+            this.additionalFiles?.images || {},
+            flattenDirectory(mediaFiles)
+        )
+        return this.handlePandocJson(
+            out,
+            images,
+            this.additionalFiles?.bibliography
+        )
     }
 }
