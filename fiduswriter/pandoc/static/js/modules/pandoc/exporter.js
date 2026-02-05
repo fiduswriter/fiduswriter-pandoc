@@ -1,5 +1,5 @@
 import download from "downloadjs"
-import {pandoc} from "wasm-pandoc"
+import {convert} from "wasm-pandoc"
 
 import {addAlert, get, jsonPost} from "../common"
 import {PandocExporter} from "../exporter/pandoc"
@@ -36,17 +36,26 @@ export class PandocConversionExporter extends PandocExporter {
             )
         )
             .then(binaryFiles => {
-                const files = this.textFiles.concat(binaryFiles)
-                const hasBibliography = files.find(
-                    file => file.filename === "bibliography.bib"
-                )
-                return pandoc(
-                    `-s -f json -t ${this.format} ${hasBibliography ? "--bibliography bibliography.bib --citeproc" : ""}`,
-                    JSON.stringify(this.conversion.json),
-                    files
-                )
+                const files = {}
+                this.textFiles.forEach(file => {
+                    files[file.filename] = file.contents
+                })
+                binaryFiles.forEach(file => {
+                    files[file.filename] = file.contents
+                })
+                const options = {
+                    from: "json",
+                    to: this.format,
+                    standalone: true
+                }
+                if (files["bibliography.bib"]) {
+                    options.bibliography = "bibliography.bib"
+                    options.citeproc = true
+                }
+                const content = JSON.stringify(this.conversion.json)
+                return convert(options, content, files)
             })
-            .then(({out}) => {
+            .then(({stdout: out}) => {
                 if (this.options.fullFileExport) {
                     const fileName = `${createSlug(this.docTitle)}.${this.fileExtension}`
                     if (out instanceof Blob) {
