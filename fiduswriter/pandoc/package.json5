@@ -1,5 +1,5 @@
 {
     dependencies: {
-       "wasm-pandoc": "1.0.0"
+       "pandoc-wasm": "1.0.1"
     }
 }
