@@ -34,7 +34,7 @@ export class PandocConversionImporter extends PandocImporter {
             to: "json",
             extractMedia: "."
         }
-        const {convert} = await import("wasm-pandoc")
+        const {convert} = await import("pandoc-wasm")
         const {stdout: out, mediaFiles} = await convert(options, inData)
         const images = Object.assign(
             this.additionalFiles?.images || {},
