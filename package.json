@@ -1,0 +1,11 @@
+{
+    "name": "fiduswriter-pandoc",
+    "version": "1.0.0",
+    "description": "Fidus Writer Pandoc plugin",
+    "main": "index.js",
+    "scripts": {
+        "lint:knip": "knip"
+    },
+    "dependencies": {},
+    "devDependencies": {}
+}

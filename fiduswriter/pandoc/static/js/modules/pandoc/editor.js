@@ -1,5 +1,3 @@
-import {getJson} from "../common"
-
 export class EditorPandoc {
     constructor(editor) {
         this.editor = editor

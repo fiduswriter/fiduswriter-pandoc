@@ -1,0 +1,32 @@
+{
+    "$schema": "https://unpkg.com/knip@5.0.0/schema.json",
+    "ignore": [
+        "**/.transpile-cache/**",
+        "**/venv/**",
+        "**/static-transpile/**",
+        "**/static-libs/**",
+        "**/static-collected/**",
+        "**/node_modules/**",
+        "**/testing/**",
+        "**/dist/**",
+        "**/build/**",
+        "lint/**",
+        "**/knip.json"
+    ],
+    "ignoreExportsUsedInFile": {
+        "interface": true,
+        "type": true,
+        "class": true
+    },
+    "ignoreUnresolved": [
+        "../common",
+        "../importer/*",
+        "../exporter/*"
+    ],
+    "entry": [
+        "fiduswriter/pandoc/static/js/**/*.js"
+    ],
+    "project": [
+        "fiduswriter/pandoc/static/js/**/*.js"
+    ]
+}

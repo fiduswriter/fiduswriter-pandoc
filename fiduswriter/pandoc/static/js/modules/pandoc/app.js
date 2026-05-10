@@ -1,5 +1,3 @@
-import {getJson} from "../common"
-
 import {formats} from "./constants"
 import {PandocConversionImporter} from "./importer"
 

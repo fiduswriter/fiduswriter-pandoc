@@ -22,3 +22,4 @@ fiduswriter/fiduswriter.sqlite3
 *.zip
 *.sql
 *.sqlite3
+node_modules/

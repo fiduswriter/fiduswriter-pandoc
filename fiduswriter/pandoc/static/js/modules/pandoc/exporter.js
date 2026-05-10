@@ -1,7 +1,7 @@
 import download from "downloadjs"
 import {convert} from "pandoc-wasm"
 
-import {addAlert, get, jsonPost} from "../common"
+import {get} from "../common"
 import {PandocExporter} from "../exporter/pandoc"
 import {createSlug} from "../exporter/tools/file"
 
