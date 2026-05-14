@@ -82,7 +82,8 @@ msgstr "GitHub-flavored Markdown"
 #: pandoc/static/js/modules/pandoc/editor.js:119
 msgid "Export the document to a GitHub-Flavored Markdown file using pandoc."
 msgstr ""
-"Eksporter dokumentet til en GitHub-flavored Markdown-fil ved hjælp af pandoc."
+"Eksporter dokumentet til en GitHub-flavored Markdown-fil ved hjælp af "
+"pandoc."
 
 #: pandoc/static/js/modules/pandoc/editor.js:146
 msgid "Markua"

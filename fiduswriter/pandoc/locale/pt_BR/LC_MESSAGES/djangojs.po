@@ -56,7 +56,8 @@ msgstr "Indesign ICML"
 
 #: pandoc/static/js/modules/pandoc/editor.js:53
 msgid "Export the document to an Adobe Indesign ICML file using pandoc."
-msgstr "Exporte o documento para um arquivo Adobe Indesign ICML usando pandoc."
+msgstr ""
+"Exporte o documento para um arquivo Adobe Indesign ICML usando pandoc."
 
 #: pandoc/static/js/modules/pandoc/editor.js:78
 msgid "Markdown"

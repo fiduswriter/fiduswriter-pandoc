@@ -56,9 +56,7 @@ msgstr "Indesign ICML"
 
 #: pandoc/static/js/modules/pandoc/editor.js:53
 msgid "Export the document to an Adobe Indesign ICML file using pandoc."
-msgstr ""
-"Pandoc を使用してドキュメントを Adob​​e Indesign ICML ファイルにエクスポートし"
-"ます。"
+msgstr "Pandoc を使用してドキュメントを Adob​​e Indesign ICML ファイルにエクスポートします。"
 
 #: pandoc/static/js/modules/pandoc/editor.js:78
 msgid "Markdown"
@@ -66,8 +64,7 @@ msgstr "マークダウン"
 
 #: pandoc/static/js/modules/pandoc/editor.js:81
 msgid "Export the document to a markdown file using pandoc."
-msgstr ""
-"Pandoc を使用してドキュメントをマークダウン ファイルにエクスポートします。"
+msgstr "Pandoc を使用してドキュメントをマークダウン ファイルにエクスポートします。"
 
 #: pandoc/static/js/modules/pandoc/editor.js:86
 msgid "Commonmark"
@@ -75,8 +72,7 @@ msgstr "コモンマーク"
 
 #: pandoc/static/js/modules/pandoc/editor.js:89
 msgid "Export the document to a Commonmark file using pandoc."
-msgstr ""
-"Pandoc を使用してドキュメントを Commonmark ファイルにエクスポートします。"
+msgstr "Pandoc を使用してドキュメントを Commonmark ファイルにエクスポートします。"
 
 #: pandoc/static/js/modules/pandoc/editor.js:116
 msgid "GitHub-Flavored Markdown"
@@ -84,9 +80,7 @@ msgstr "GitHub 風味のマークダウン"
 
 #: pandoc/static/js/modules/pandoc/editor.js:119
 msgid "Export the document to a GitHub-Flavored Markdown file using pandoc."
-msgstr ""
-"Pandoc を使用して、ドキュメントを GitHub 風味の Markdown ファイルにエクスポー"
-"トします。"
+msgstr "Pandoc を使用して、ドキュメントを GitHub 風味の Markdown ファイルにエクスポートします。"
 
 #: pandoc/static/js/modules/pandoc/editor.js:146
 msgid "Markua"
@@ -102,8 +96,7 @@ msgstr "マルチマークダウン"
 
 #: pandoc/static/js/modules/pandoc/editor.js:179
 msgid "Export the document to a MultiMarkdown file using pandoc."
-msgstr ""
-"pandoc を使用してドキュメントを MultiMarkdown ファイルにエクスポートします。"
+msgstr "pandoc を使用してドキュメントを MultiMarkdown ファイルにエクスポートします。"
 
 #: pandoc/static/js/modules/pandoc/editor.js:206
 msgid "Pandoc Markdown"
@@ -111,9 +104,7 @@ msgstr "Pandoc マークダウン"
 
 #: pandoc/static/js/modules/pandoc/editor.js:209
 msgid "Export the document to a Pandoc Markdown file using pandoc."
-msgstr ""
-"Pandoc を使用してドキュメントを Pandoc Markdown ファイルにエクスポートしま"
-"す。"
+msgstr "Pandoc を使用してドキュメントを Pandoc Markdown ファイルにエクスポートします。"
 
 #: pandoc/static/js/modules/pandoc/editor.js:236
 msgid "PHP Markdown Extra"
@@ -121,9 +112,7 @@ msgstr "PHP マークダウン エクストラ"
 
 #: pandoc/static/js/modules/pandoc/editor.js:239
 msgid "Export the document to a PHP Markdown Extra file using pandoc."
-msgstr ""
-"Pandoc を使用してドキュメントを PHP Markdown Extra ファイルにエクスポートしま"
-"す。"
+msgstr "Pandoc を使用してドキュメントを PHP Markdown Extra ファイルにエクスポートします。"
 
 #: pandoc/static/js/modules/pandoc/editor.js:268
 msgid "Richtext"
@@ -131,8 +120,7 @@ msgstr "リッチテキスト"
 
 #: pandoc/static/js/modules/pandoc/editor.js:271
 msgid "Export the document to a richtext file using pandoc."
-msgstr ""
-"Pandoc を使用してドキュメントをリッチテキスト ファイルにエクスポートします。"
+msgstr "Pandoc を使用してドキュメントをリッチテキスト ファイルにエクスポートします。"
 
 #: pandoc/static/js/modules/pandoc/editor.js:296
 msgid "Textile"
@@ -140,8 +128,7 @@ msgstr "繊維"
 
 #: pandoc/static/js/modules/pandoc/editor.js:299
 msgid "Export the document to a textile file using pandoc."
-msgstr ""
-"Pandoc を使用してドキュメントをテキスタイル ファイルにエクスポートします。"
+msgstr "Pandoc を使用してドキュメントをテキスタイル ファイルにエクスポートします。"
 
 #: pandoc/static/js/modules/pandoc/editor.js:324
 msgid "TEI Simple"
@@ -149,8 +136,7 @@ msgstr "TEIシンプル"
 
 #: pandoc/static/js/modules/pandoc/editor.js:327
 msgid "Export the document to a TEI Simple file using pandoc."
-msgstr ""
-"Pandoc を使用してドキュメントを TEI Simple ファイルにエクスポートします。"
+msgstr "Pandoc を使用してドキュメントを TEI Simple ファイルにエクスポートします。"
 
 #: pandoc/static/js/modules/pandoc/editor.js:352
 msgid "Typst"

@@ -114,7 +114,8 @@ msgstr "PHP Markdown Extra"
 
 #: pandoc/static/js/modules/pandoc/editor.js:239
 msgid "Export the document to a PHP Markdown Extra file using pandoc."
-msgstr "Експортирайте документа в PHP Markdown Extra файл с помощта на pandoc."
+msgstr ""
+"Експортирайте документа в PHP Markdown Extra файл с помощта на pandoc."
 
 #: pandoc/static/js/modules/pandoc/editor.js:268
 msgid "Richtext"

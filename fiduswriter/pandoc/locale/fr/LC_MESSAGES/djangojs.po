@@ -99,7 +99,8 @@ msgstr "MultiMarkdown"
 
 #: pandoc/static/js/modules/pandoc/editor.js:179
 msgid "Export the document to a MultiMarkdown file using pandoc."
-msgstr "Exportez le document vers un fichier MultiMarkdown à l'aide de pandoc."
+msgstr ""
+"Exportez le document vers un fichier MultiMarkdown à l'aide de pandoc."
 
 #: pandoc/static/js/modules/pandoc/editor.js:206
 msgid "Pandoc Markdown"

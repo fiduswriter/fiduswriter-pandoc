@@ -48,7 +48,8 @@ msgstr "DocBook"
 
 #: pandoc/static/js/modules/pandoc/editor.js:25
 msgid "Export the document to a DocBook file using pandoc."
-msgstr "Exporteer het document naar een DocBook-bestand met behulp van pandoc."
+msgstr ""
+"Exporteer het document naar een DocBook-bestand met behulp van pandoc."
 
 #: pandoc/static/js/modules/pandoc/editor.js:50
 msgid "Indesign ICML"
@@ -85,8 +86,8 @@ msgstr "Prijsverlaging met GitHub-smaak"
 #: pandoc/static/js/modules/pandoc/editor.js:119
 msgid "Export the document to a GitHub-Flavored Markdown file using pandoc."
 msgstr ""
-"Exporteer het document naar een Markdown-bestand met GitHub-smaak met behulp "
-"van pandoc."
+"Exporteer het document naar een Markdown-bestand met GitHub-smaak met behulp"
+" van pandoc."
 
 #: pandoc/static/js/modules/pandoc/editor.js:146
 msgid "Markua"

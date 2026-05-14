@@ -107,7 +107,8 @@ msgstr "Pandoc-Markdown"
 
 #: pandoc/static/js/modules/pandoc/editor.js:209
 msgid "Export the document to a Pandoc Markdown file using pandoc."
-msgstr "Exportieren Sie das Dokument mit Pandoc in eine Pandoc-Markdown-Datei."
+msgstr ""
+"Exportieren Sie das Dokument mit Pandoc in eine Pandoc-Markdown-Datei."
 
 #: pandoc/static/js/modules/pandoc/editor.js:236
 msgid "PHP Markdown Extra"

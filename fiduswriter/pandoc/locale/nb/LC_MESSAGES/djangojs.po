@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-14 12:15+0000\n"
+"POT-Creation-Date: 2026-05-14 13:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -154,10 +154,9 @@ msgid "Unknown file type"
 msgstr "Ukjent filtype"
 
 #: pandoc/static/js/plugins/books_overview/pandoc.js:79
-#, fuzzy, javascript-format
-#| msgid "Export selected with Pandoc"
+#, javascript-format
 msgid "Export selected as %s (via Pandoc)"
-msgstr "Eksporter valgt med Pandoc"
+msgstr "Eksporter valgt som %s (via Pandoc)"
 
 #: pandoc/static/js/plugins/books_overview/pandoc.js:83
 #, javascript-format
