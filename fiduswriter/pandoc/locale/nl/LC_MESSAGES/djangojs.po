@@ -1,0 +1,180 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-14 11:37+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: pandoc/static/js/modules/pandoc/book_exporter.js:58
+msgid "Book cannot be exported due to lack of chapters."
+msgstr "Boek kan niet worden geëxporteerd vanwege gebrek aan hoofdstukken."
+
+#: pandoc/static/js/modules/pandoc/book_exporter.js:65
+msgid "Pandoc export has been initiated."
+msgstr "Pandoc-export is gestart."
+
+#: pandoc/static/js/modules/pandoc/book_exporter.js:73
+msgid "Pandoc export failed."
+msgstr "Pandoc-export mislukt."
+
+#: pandoc/static/js/modules/pandoc/book_exporter.js:107
+msgid "Untitled"
+msgstr "Zonder titel"
+
+#: pandoc/static/js/modules/pandoc/editor.js:16
+msgid "Other formats"
+msgstr "Andere formaten"
+
+#: pandoc/static/js/modules/pandoc/editor.js:18
+msgid "Export to a lesser used format using Pandoc."
+msgstr "Exporteer naar een minder gebruikt formaat met behulp van Pandoc."
+
+#: pandoc/static/js/modules/pandoc/editor.js:22
+msgid "DocBook"
+msgstr "DocBook"
+
+#: pandoc/static/js/modules/pandoc/editor.js:25
+msgid "Export the document to a DocBook file using pandoc."
+msgstr "Exporteer het document naar een DocBook-bestand met behulp van pandoc."
+
+#: pandoc/static/js/modules/pandoc/editor.js:50
+msgid "Indesign ICML"
+msgstr "Indesign ICML"
+
+#: pandoc/static/js/modules/pandoc/editor.js:53
+msgid "Export the document to an Adobe Indesign ICML file using pandoc."
+msgstr ""
+"Exporteer het document naar een Adobe Indesign ICML-bestand met behulp van "
+"pandoc."
+
+#: pandoc/static/js/modules/pandoc/editor.js:78
+msgid "Markdown"
+msgstr "Afwaardering"
+
+#: pandoc/static/js/modules/pandoc/editor.js:81
+msgid "Export the document to a markdown file using pandoc."
+msgstr ""
+"Exporteer het document naar een markdown-bestand met behulp van pandoc."
+
+#: pandoc/static/js/modules/pandoc/editor.js:86
+msgid "Commonmark"
+msgstr "Gemeenschappelijk kenmerk"
+
+#: pandoc/static/js/modules/pandoc/editor.js:89
+msgid "Export the document to a Commonmark file using pandoc."
+msgstr ""
+"Exporteer het document naar een Commonmark-bestand met behulp van pandoc."
+
+#: pandoc/static/js/modules/pandoc/editor.js:116
+msgid "GitHub-Flavored Markdown"
+msgstr "Prijsverlaging met GitHub-smaak"
+
+#: pandoc/static/js/modules/pandoc/editor.js:119
+msgid "Export the document to a GitHub-Flavored Markdown file using pandoc."
+msgstr ""
+"Exporteer het document naar een Markdown-bestand met GitHub-smaak met behulp "
+"van pandoc."
+
+#: pandoc/static/js/modules/pandoc/editor.js:146
+msgid "Markua"
+msgstr "Markua"
+
+#: pandoc/static/js/modules/pandoc/editor.js:149
+msgid "Export the document to a Markua file using pandoc."
+msgstr "Exporteer het document naar een Markua-bestand met behulp van pandoc."
+
+#: pandoc/static/js/modules/pandoc/editor.js:176
+msgid "MultiMarkdown"
+msgstr "MultiMarkdown"
+
+#: pandoc/static/js/modules/pandoc/editor.js:179
+msgid "Export the document to a MultiMarkdown file using pandoc."
+msgstr ""
+"Exporteer het document naar een MultiMarkdown-bestand met behulp van pandoc."
+
+#: pandoc/static/js/modules/pandoc/editor.js:206
+msgid "Pandoc Markdown"
+msgstr "Pandoc-afwaardering"
+
+#: pandoc/static/js/modules/pandoc/editor.js:209
+msgid "Export the document to a Pandoc Markdown file using pandoc."
+msgstr ""
+"Exporteer het document naar een Pandoc Markdown-bestand met behulp van "
+"pandoc."
+
+#: pandoc/static/js/modules/pandoc/editor.js:236
+msgid "PHP Markdown Extra"
+msgstr "PHP-afwaardering extra"
+
+#: pandoc/static/js/modules/pandoc/editor.js:239
+msgid "Export the document to a PHP Markdown Extra file using pandoc."
+msgstr ""
+"Exporteer het document naar een PHP Markdown Extra-bestand met behulp van "
+"pandoc."
+
+#: pandoc/static/js/modules/pandoc/editor.js:268
+msgid "Richtext"
+msgstr "Richttekst"
+
+#: pandoc/static/js/modules/pandoc/editor.js:271
+msgid "Export the document to a richtext file using pandoc."
+msgstr ""
+"Exporteer het document naar een richtext-bestand met behulp van pandoc."
+
+#: pandoc/static/js/modules/pandoc/editor.js:296
+msgid "Textile"
+msgstr "Textiel"
+
+#: pandoc/static/js/modules/pandoc/editor.js:299
+msgid "Export the document to a textile file using pandoc."
+msgstr "Exporteer het document naar een textielbestand met behulp van pandoc."
+
+#: pandoc/static/js/modules/pandoc/editor.js:324
+msgid "TEI Simple"
+msgstr "TEI Eenvoudig"
+
+#: pandoc/static/js/modules/pandoc/editor.js:327
+msgid "Export the document to a TEI Simple file using pandoc."
+msgstr ""
+"Exporteer het document naar een TEI Simple-bestand met behulp van pandoc."
+
+#: pandoc/static/js/modules/pandoc/editor.js:352
+msgid "Typst"
+msgstr "Typst"
+
+#: pandoc/static/js/modules/pandoc/editor.js:355
+msgid "Export the document to a typst file using pandoc."
+msgstr "Exporteer het document naar een typst-bestand met behulp van pandoc."
+
+#: pandoc/static/js/modules/pandoc/importer.js:16
+msgid "Unknown file type"
+msgstr "Onbekend bestandstype"
+
+#: pandoc/static/js/plugins/books_overview/pandoc.js:110
+msgid "Export selected with Pandoc"
+msgstr "Exporteren geselecteerd met Pandoc"
+
+#: pandoc/static/js/plugins/books_overview/pandoc.js:111
+msgid "Export selected books using Pandoc."
+msgstr "Exporteer geselecteerde boeken met Pandoc."
+
+#: pandoc/static/js/plugins/books_overview/pandoc.js:130
+msgid "Export with Pandoc"
+msgstr "Exporteren met Pandoc"
+
+#: pandoc/static/js/plugins/books_overview/pandoc.js:131
+msgid "Export book using Pandoc."
+msgstr "Boek exporteren met Pandoc."
