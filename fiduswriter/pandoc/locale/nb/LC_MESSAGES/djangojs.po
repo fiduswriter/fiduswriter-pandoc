@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-14 11:37+0000\n"
+"POT-Creation-Date: 2026-05-14 12:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -153,18 +153,23 @@ msgstr "Eksporter dokumentet til en typst-fil ved hjelp av Pandoc."
 msgid "Unknown file type"
 msgstr "Ukjent filtype"
 
-#: pandoc/static/js/plugins/books_overview/pandoc.js:110
-msgid "Export selected with Pandoc"
+#: pandoc/static/js/plugins/books_overview/pandoc.js:79
+#, fuzzy, javascript-format
+#| msgid "Export selected with Pandoc"
+msgid "Export selected as %s (via Pandoc)"
 msgstr "Eksporter valgt med Pandoc"
 
-#: pandoc/static/js/plugins/books_overview/pandoc.js:111
-msgid "Export selected books using Pandoc."
-msgstr "Eksporter valgte bøker ved hjelp av Pandoc."
+#: pandoc/static/js/plugins/books_overview/pandoc.js:83
+#, javascript-format
+msgid "Export selected books as %s using Pandoc."
+msgstr "Eksporter valgte bøker som %s ved hjelp av Pandoc."
 
-#: pandoc/static/js/plugins/books_overview/pandoc.js:130
-msgid "Export with Pandoc"
-msgstr "Eksporter med Pandoc"
+#: pandoc/static/js/plugins/books_overview/pandoc.js:119
+#, javascript-format
+msgid "Export as %s (via Pandoc)"
+msgstr "Eksporter som %s (via Pandoc)"
 
-#: pandoc/static/js/plugins/books_overview/pandoc.js:131
-msgid "Export book using Pandoc."
-msgstr "Eksporter bok ved hjelp av Pandoc."
+#: pandoc/static/js/plugins/books_overview/pandoc.js:123
+#, javascript-format
+msgid "Export book as %s using Pandoc."
+msgstr "Eksporter bok som %s ved hjelp av Pandoc."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-14 11:37+0000\n"
+"POT-Creation-Date: 2026-05-14 12:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -150,18 +150,22 @@ msgstr "使用 pandoc 将文档导出为 typest 文件。"
 msgid "Unknown file type"
 msgstr "未知的文件类型"
 
-#: pandoc/static/js/plugins/books_overview/pandoc.js:110
-msgid "Export selected with Pandoc"
-msgstr "使用 Pandoc 导出选定内容"
+#: pandoc/static/js/plugins/books_overview/pandoc.js:79
+#, javascript-format
+msgid "Export selected as %s (via Pandoc)"
+msgstr "将所选内容导出为 %s（通过 Pandoc）"
 
-#: pandoc/static/js/plugins/books_overview/pandoc.js:111
-msgid "Export selected books using Pandoc."
-msgstr "使用 Pandoc 导出选定的书籍。"
+#: pandoc/static/js/plugins/books_overview/pandoc.js:83
+#, javascript-format
+msgid "Export selected books as %s using Pandoc."
+msgstr "使用 Pandoc 将选定的图书导出为 %s。"
 
-#: pandoc/static/js/plugins/books_overview/pandoc.js:130
-msgid "Export with Pandoc"
-msgstr "使用 Pandoc 导出"
+#: pandoc/static/js/plugins/books_overview/pandoc.js:119
+#, javascript-format
+msgid "Export as %s (via Pandoc)"
+msgstr "导出为 %s（通过 Pandoc）"
 
-#: pandoc/static/js/plugins/books_overview/pandoc.js:131
-msgid "Export book using Pandoc."
-msgstr "使用 Pandoc 导出图书。"
+#: pandoc/static/js/plugins/books_overview/pandoc.js:123
+#, javascript-format
+msgid "Export book as %s using Pandoc."
+msgstr "使用 Pandoc 将图书导出为 %s。"
