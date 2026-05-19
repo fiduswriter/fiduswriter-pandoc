@@ -270,9 +270,9 @@ class BookPandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
                 f"{chapter_files}"
             )
             for cf in chapter_files:
-                assert cf.endswith(f".{ext}"), (
-                    f"Chapter file '{cf}' does not end with .{ext}"
-                )
+                assert cf.endswith(
+                    f".{ext}"
+                ), f"Chapter file '{cf}' does not end with .{ext}"
 
             # ── image file ───────────────────────────────────────────────────
             image_extensions = (".png", ".jpg", ".jpeg", ".gif", ".svg")
@@ -288,9 +288,7 @@ class BookPandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
             # Verify the image is not an empty placeholder
             for img in image_files:
                 info = zf.getinfo(img)
-                assert info.file_size > 0, (
-                    f"Image file '{img}' has zero bytes"
-                )
+                assert info.file_size > 0, f"Image file '{img}' has zero bytes"
 
             # ── image reference in chapter content ───────────────────────────
             ch0 = [n for n in chapter_files if n.startswith("chapters/0/")][0]
@@ -318,9 +316,9 @@ class BookPandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
 
             # ── book.json metadata ───────────────────────────────────────────
             book_data = json.loads(zf.read("book.json"))
-            assert book_data["title"] == "Test Book", (
-                f"Expected title 'Test Book', got '{book_data['title']}'"
-            )
+            assert (
+                book_data["title"] == "Test Book"
+            ), f"Expected title 'Test Book', got '{book_data['title']}'"
             assert len(book_data["chapters"]) == 2, (
                 f"Expected 2 chapters in book.json, "
                 f"got {len(book_data['chapters'])}"
@@ -389,9 +387,7 @@ class BookPandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
 
         # Open the bulk action dropdown
         WebDriverWait(self.driver, self.wait_time).until(
-            EC.element_to_be_clickable(
-                (By.CSS_SELECTOR, ".dt-bulk-dropdown")
-            )
+            EC.element_to_be_clickable((By.CSS_SELECTOR, ".dt-bulk-dropdown"))
         ).click()
 
         # Click the pandoc reStructuredText export item
@@ -406,9 +402,7 @@ class BookPandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
 
         time.sleep(5)
 
-        expected_zip = os.path.join(
-            self.download_dir, "test-book.rst.zip"
-        )
+        expected_zip = os.path.join(self.download_dir, "test-book.rst.zip")
         self.wait_until_file_exists(expected_zip, self.wait_time)
         self.assertTrue(os.path.isfile(expected_zip))
         self._verify_zip(expected_zip, "rst")

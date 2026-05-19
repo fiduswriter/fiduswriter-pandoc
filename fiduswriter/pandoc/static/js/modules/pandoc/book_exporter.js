@@ -2,13 +2,13 @@ import {BibLatexExporter} from "biblatex-csl-converter"
 import download from "downloadjs"
 import {convert} from "pandoc-wasm"
 
+import {getMissingChapterData} from "../books/exporter/tools"
 import {addAlert, get} from "../common"
-import {PandocExporterConvert} from "../exporter/pandoc/convert"
 import {PandocExporterCitations} from "../exporter/pandoc/citations"
+import {PandocExporterConvert} from "../exporter/pandoc/convert"
 import {fixTables, removeHidden} from "../exporter/tools/doc_content"
 import {createSlug} from "../exporter/tools/file"
 import {ZipFileCreator} from "../exporter/tools/zip"
-import {getMissingChapterData} from "../books/exporter/tools"
 
 /**
  * Exports a book via pandoc-wasm, converting each chapter to a chosen format
@@ -98,14 +98,18 @@ export class PandocBookExporter {
         })
 
         // ── Process chapters sequentially ───────────────────────────────────
-        for (let chapterIndex = 0; chapterIndex < sortedChapters.length; chapterIndex++) {
+        for (
+            let chapterIndex = 0;
+            chapterIndex < sortedChapters.length;
+            chapterIndex++
+        ) {
             const chapter = sortedChapters[chapterIndex]
             const doc = this.docList.find(d => d.id === chapter.text)
-            if (!doc) continue
+            if (!doc) {
+                continue
+            }
 
-            const chapterSlug = createSlug(
-                doc.title || gettext("Untitled")
-            )
+            const chapterSlug = createSlug(doc.title || gettext("Untitled"))
             const docContent = fixTables(removeHidden(doc.content))
             const imageDB = {db: doc.images}
             const bibDB = {db: doc.bibliography}
@@ -159,7 +163,9 @@ export class PandocBookExporter {
             const binaryFiles = conversion.imageIds
                 .map(id => {
                     const entry = doc.images[id]
-                    if (!entry) return null
+                    if (!entry) {
+                        return null
+                    }
                     return get(entry.image)
                         .then(response => response.blob())
                         .then(blob => ({
@@ -179,7 +185,7 @@ export class PandocBookExporter {
             })
 
             // ── 5. Add bibliography for this chapter (if any) ──────────────
-            let hasBib = Object.keys(conversion.usedBibDB).length > 0
+            const hasBib = Object.keys(conversion.usedBibDB).length > 0
             const chapterBibEntries = {}
             if (hasBib) {
                 Object.keys(conversion.usedBibDB).forEach(bibId => {
@@ -205,7 +211,11 @@ export class PandocBookExporter {
 
             // ── 6. Convert via pandoc-wasm ─────────────────────────────────
             const content = JSON.stringify(conversion.json)
-            const {stdout: out} = await convert(pandocOptions, content, pandocFiles)
+            const {stdout: out} = await convert(
+                pandocOptions,
+                content,
+                pandocFiles
+            )
 
             // Add converted file to text files
             const outputFilename = `chapters/${chapterIndex}/${chapterSlug}.${this.fileExtension}`

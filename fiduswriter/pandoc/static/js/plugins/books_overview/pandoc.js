@@ -76,19 +76,17 @@ export class BooksPandoc {
         BooksPandoc.FORMATS.forEach(([label, format, ext, mime]) => {
             bulkContent.push({
                 title: interpolate(
-                    gettext('Export selected as %s (via Pandoc)'),
+                    gettext("Export selected as %s (via Pandoc)"),
                     [label]
                 ),
                 tooltip: interpolate(
-                    gettext('Export selected books as %s using Pandoc.'),
+                    gettext("Export selected books as %s using Pandoc."),
                     [label]
                 ),
                 action: overview => {
                     const ids = overview.getSelected()
                     ids.forEach(id => {
-                        const book = overview.bookList.find(
-                            b => b.id === id
-                        )
+                        const book = overview.bookList.find(b => b.id === id)
                         if (book) {
                             BooksPandoc.exportBook(
                                 book,
@@ -115,12 +113,11 @@ export class BooksPandoc {
         BooksPandoc.FORMATS.forEach(([label, format, ext, mime]) => {
             exportContent.push({
                 type: "action",
-                title: interpolate(
-                    gettext('Export as %s (via Pandoc)'),
-                    [label]
-                ),
+                title: interpolate(gettext("Export as %s (via Pandoc)"), [
+                    label
+                ]),
                 tooltip: interpolate(
-                    gettext('Export book as %s using Pandoc.'),
+                    gettext("Export book as %s using Pandoc."),
                     [label]
                 ),
                 action: ({saveBook, book, overview}) => {
