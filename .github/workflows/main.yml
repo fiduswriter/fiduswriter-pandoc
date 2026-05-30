@@ -17,9 +17,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
-          python-version: "3.13"
+          python-version: "3.14"
       - name: Install dependencies
         run: |
           pip install pip --upgrade
@@ -32,9 +32,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
-          python-version: "3.13"
+          python-version: "3.14"
       - uses: actions/checkout@v4
       - uses: nanasess/setup-chromedriver@master
       - name: Install dependencies
@@ -70,7 +70,7 @@ jobs:
             coverage run $(which fiduswriter) test pandoc
       - name: Upload failed test screenshots
         if: ${{ failure() }}
-        uses: actions/upload-artifact@v4.3.4
+        uses: actions/upload-artifact@v4
         with:
           name: failure-artifacts
           path: ${{ github.workspace }}/fiduswriter/screenshots/
