@@ -3,7 +3,7 @@ import os
 from tempfile import mkdtemp
 from django.conf import settings
 
-from channels.testing import ChannelsLiveServerTestCase
+from testing.live_server import ChannelsLiveServerTestCase
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait, Select
