@@ -360,9 +360,14 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         self.driver.find_element(
             By.CSS_SELECTOR, "div.table-100 > button"
         ).click()
-        self.driver.find_element(
-            By.CSS_SELECTOR,
-            "body > div.ui-content-menu > div > div > ul > li:nth-child(16)",
+        WebDriverWait(self.driver, self.wait_time).until(
+            EC.element_to_be_clickable(
+                (
+                    By.XPATH,
+                    '(//div[contains(@class, "ui-content-menu")])'
+                    '[last()]//li[contains(normalize-space(.), "Configure")]',
+                )
+            )
         ).click()
         self.driver.find_element(By.CSS_SELECTOR, "div.table-category").click()
         self.driver.find_element(
@@ -386,6 +391,7 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         # export it from the editor.
 
         # Export as Markdown
+        self.driver.fullscreen_window()
         self.driver.find_element(
             By.CSS_SELECTOR,
             '.header-nav-item[title="Export of the document contents"]',
@@ -397,9 +403,10 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
             By.XPATH, '//*[normalize-space()="Markdown"]'
         ).click()
 
-        self.driver.find_element(
-            By.XPATH, '//*[normalize-space()="Pandoc Markdown"]'
-        ).click()
+        self.retry_click(
+            self.driver,
+            (By.XPATH, '//*[normalize-space()="Pandoc Markdown"]'),
+        )
         path = os.path.join(self.download_dir, "title.markdown.zip")
         self.wait_until_file_exists(path, self.wait_time)
         assert os.path.isfile(path)
@@ -431,15 +438,12 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
             "button.fw-text-menu[title='Import document (Alt-i)']",
         ).click()
 
-        # Select file to upload with ID import-external-btn
-        # self.driver.find_element(By.ID, "import-external-btn").click()
-
         docx_path = os.path.join(
             settings.PROJECT_PATH, "pandoc/tests/uploads/import.docx"
         )
         # Wait for the file input to be present
         upload_file_input = WebDriverWait(self.driver, self.wait_time).until(
-            EC.presence_of_element_located((By.ID, "external-uploader"))
+            EC.presence_of_element_located((By.ID, "doc-uploader"))
         )
         upload_file_input.send_keys(docx_path)
 
