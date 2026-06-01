@@ -55,6 +55,10 @@ jobs:
             then pip install https://github.com/fiduswriter/fiduswriter/archive/develop.zip;
             else pip install https://github.com/fiduswriter/fiduswriter/archive/main.zip;
           fi
+          if grep version pyproject.toml | grep -q "dev";
+            then pip install https://github.com/fiduswriter/fiduswriter-books/archive/develop.zip;
+            else pip install https://github.com/fiduswriter/fiduswriter-books/archive/main.zip;
+          fi
           cd fiduswriter
           mv ../ci/configuration.py ./
           mv ../ci/.coveragerc ./
