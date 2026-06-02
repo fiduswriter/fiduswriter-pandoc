@@ -215,32 +215,78 @@ class BookPandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
             By.CSS_SELECTOR, 'a[href="#optionTab1"]'
         ).click()
 
-        # Select both documents (re-query between clicks to avoid staleness)
+        # Wait for the document list to be fully rendered before interacting.
         WebDriverWait(self.driver, self.wait_time).until(
-            EC.element_to_be_clickable(
-                (By.CSS_SELECTOR, "#book-document-list .file .file-name")
+            EC.visibility_of_element_located(
+                (By.CSS_SELECTOR, "#book-document-list .file")
             )
+        )
+
+        # Select the first document.
+        self.driver.find_element(
+            By.CSS_SELECTOR, "#book-document-list .file .file-name"
         ).click()
+        # Ensure the file selector has actually marked it as selected.
         WebDriverWait(self.driver, self.wait_time).until(
-            EC.element_to_be_clickable(
+            EC.presence_of_element_located(
                 (
                     By.CSS_SELECTOR,
-                    "#book-document-list .file:nth-child(2) .file-name",
+                    "#book-document-list .file .file-name.selected",
                 )
             )
+        )
+
+        # Select the second document.
+        self.driver.find_element(
+            By.CSS_SELECTOR,
+            "#book-document-list .file:nth-child(2) .file-name",
         ).click()
+        WebDriverWait(self.driver, self.wait_time).until(
+            lambda driver: len(
+                driver.find_elements(
+                    By.CSS_SELECTOR,
+                    "#book-document-list .file .file-name.selected",
+                )
+            )
+            == 2
+        )
 
         # Add selected documents as chapters
-        self.driver.find_element(By.ID, "add-chapter").click()
+        WebDriverWait(self.driver, self.wait_time).until(
+            EC.element_to_be_clickable((By.ID, "add-chapter"))
+        ).click()
+
+        # Wait for the chapter rows to appear in the chapter list.
+        WebDriverWait(self.driver, self.wait_time).until(
+            EC.presence_of_all_elements_located(
+                (By.CSS_SELECTOR, "#book-chapter-list tr")
+            )
+        )
 
         if submit:
             # Submit dialog to save book and return to the overview table
-            self.driver.find_element(
-                By.XPATH,
-                '//*[contains(@class, "ui-button") '
-                'and normalize-space()="Submit"]',
-            ).click()
-            time.sleep(1)
+            submit_btn = WebDriverWait(self.driver, self.wait_time).until(
+                EC.element_to_be_clickable(
+                    (
+                        By.XPATH,
+                        '//*[contains(@class, "ui-button") '
+                        'and normalize-space()="Submit"]',
+                    )
+                )
+            )
+            submit_btn.click()
+            # Wait for the dialog to close before looking for the book list.
+            WebDriverWait(self.driver, self.wait_time * 2).until(
+                EC.invisibility_of_element_located(
+                    (By.CSS_SELECTOR, ".ui-dialog")
+                )
+            )
+            # The table re-renders after a save; wait for the book title.
+            WebDriverWait(self.driver, self.wait_time).until(
+                EC.visibility_of_element_located(
+                    (By.CSS_SELECTOR, ".book-title")
+                )
+            )
 
     @staticmethod
     def _verify_zip(zip_path, ext):
@@ -380,9 +426,10 @@ class BookPandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
 
         # The book was just created — the edit dialog has been closed and we
         # are back on the overview table.  Tick the checkbox for the book.
-        time.sleep(1)
-        self.driver.find_element(
-            By.CSS_SELECTOR, "tr:nth-child(1) > td > label"
+        WebDriverWait(self.driver, self.wait_time).until(
+            EC.element_to_be_clickable(
+                (By.CSS_SELECTOR, "tr:nth-child(1) > td > label")
+            )
         ).click()
 
         # Open the bulk action dropdown
