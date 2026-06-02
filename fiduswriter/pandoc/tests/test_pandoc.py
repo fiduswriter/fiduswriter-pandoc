@@ -391,7 +391,7 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         # export it from the editor.
 
         # Export as Markdown
-        self.driver.fullscreen_window()
+        self.driver.set_window_size(1920, 1080)
         self.driver.find_element(
             By.CSS_SELECTOR,
             '.header-nav-item[title="Export of the document contents"]',
