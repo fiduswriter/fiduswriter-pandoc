@@ -66,7 +66,7 @@ jobs:
           cd fiduswriter
           mv ../ci/configuration.py ./
           mv ../ci/.coveragerc ./
-          coverage run $(which fiduswriter) setup --no-static
+          coverage run --concurrency=multiprocessing,thread $(which fiduswriter) setup --no-static
       - name: Run test pandoc
         uses: nick-invision/retry@v3
         with:
@@ -75,7 +75,7 @@ jobs:
           retry_on: error
           command: |
             cd fiduswriter
-            coverage run $(which fiduswriter) test pandoc
+            coverage run --concurrency=multiprocessing,thread $(which fiduswriter) test pandoc
       - name: Upload failed test screenshots
         if: ${{ failure() }}
         uses: actions/upload-artifact@v4
