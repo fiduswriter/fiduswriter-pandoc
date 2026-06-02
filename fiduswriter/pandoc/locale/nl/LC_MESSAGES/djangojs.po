@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-14 12:15+0000\n"
+"POT-Creation-Date: 2026-06-02 17:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,7 +30,7 @@ msgstr "Pandoc-export is gestart."
 msgid "Pandoc export failed."
 msgstr "Pandoc-export mislukt."
 
-#: pandoc/static/js/modules/pandoc/book_exporter.js:107
+#: pandoc/static/js/modules/pandoc/book_exporter.js:112
 msgid "Untitled"
 msgstr "Zonder titel"
 
@@ -48,8 +48,7 @@ msgstr "DocBook"
 
 #: pandoc/static/js/modules/pandoc/editor.js:25
 msgid "Export the document to a DocBook file using pandoc."
-msgstr ""
-"Exporteer het document naar een DocBook-bestand met behulp van pandoc."
+msgstr "Exporteer het document naar een DocBook-bestand met behulp van pandoc."
 
 #: pandoc/static/js/modules/pandoc/editor.js:50
 msgid "Indesign ICML"
@@ -86,8 +85,8 @@ msgstr "Prijsverlaging met GitHub-smaak"
 #: pandoc/static/js/modules/pandoc/editor.js:119
 msgid "Export the document to a GitHub-Flavored Markdown file using pandoc."
 msgstr ""
-"Exporteer het document naar een Markdown-bestand met GitHub-smaak met behulp"
-" van pandoc."
+"Exporteer het document naar een Markdown-bestand met GitHub-smaak met behulp "
+"van pandoc."
 
 #: pandoc/static/js/modules/pandoc/editor.js:146
 msgid "Markua"
@@ -165,6 +164,7 @@ msgid "Unknown file type"
 msgstr "Onbekend bestandstype"
 
 #: pandoc/static/js/plugins/books_overview/pandoc.js:79
+#: pandoc/static/js/plugins/documents_overview/pandoc.js:73
 #, javascript-format
 msgid "Export selected as %s (via Pandoc)"
 msgstr "Exporteren geselecteerd als %s (via Pandoc)"
@@ -174,12 +174,19 @@ msgstr "Exporteren geselecteerd als %s (via Pandoc)"
 msgid "Export selected books as %s using Pandoc."
 msgstr "Exporteer geselecteerde boeken als %s met behulp van Pandoc."
 
-#: pandoc/static/js/plugins/books_overview/pandoc.js:119
+#: pandoc/static/js/plugins/books_overview/pandoc.js:116
 #, javascript-format
 msgid "Export as %s (via Pandoc)"
 msgstr "Exporteren als %s (via Pandoc)"
 
-#: pandoc/static/js/plugins/books_overview/pandoc.js:123
+#: pandoc/static/js/plugins/books_overview/pandoc.js:120
 #, javascript-format
 msgid "Export book as %s using Pandoc."
 msgstr "Exporteer boek als %s met behulp van Pandoc."
+
+#: pandoc/static/js/plugins/documents_overview/pandoc.js:78
+#, javascript-format
+msgid "Export the documents that have been selected as %s files using Pandoc."
+msgstr ""
+"Exporteer de documenten die zijn geselecteerd als %s bestanden met behulp "
+"van Pandoc."

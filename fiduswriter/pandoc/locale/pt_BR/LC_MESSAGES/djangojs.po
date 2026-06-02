@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-14 12:15+0000\n"
+"POT-Creation-Date: 2026-06-02 17:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,7 +30,7 @@ msgstr "A exportação Pandoc foi iniciada."
 msgid "Pandoc export failed."
 msgstr "Falha na exportação do Pandoc."
 
-#: pandoc/static/js/modules/pandoc/book_exporter.js:107
+#: pandoc/static/js/modules/pandoc/book_exporter.js:112
 msgid "Untitled"
 msgstr "Sem título"
 
@@ -56,8 +56,7 @@ msgstr "Indesign ICML"
 
 #: pandoc/static/js/modules/pandoc/editor.js:53
 msgid "Export the document to an Adobe Indesign ICML file using pandoc."
-msgstr ""
-"Exporte o documento para um arquivo Adobe Indesign ICML usando pandoc."
+msgstr "Exporte o documento para um arquivo Adobe Indesign ICML usando pandoc."
 
 #: pandoc/static/js/modules/pandoc/editor.js:78
 msgid "Markdown"
@@ -154,6 +153,7 @@ msgid "Unknown file type"
 msgstr "Tipo de arquivo desconhecido"
 
 #: pandoc/static/js/plugins/books_overview/pandoc.js:79
+#: pandoc/static/js/plugins/documents_overview/pandoc.js:73
 #, javascript-format
 msgid "Export selected as %s (via Pandoc)"
 msgstr "Exportação selecionada como %s (via Pandoc)"
@@ -163,12 +163,18 @@ msgstr "Exportação selecionada como %s (via Pandoc)"
 msgid "Export selected books as %s using Pandoc."
 msgstr "Exporte livros selecionados como %s usando Pandoc."
 
-#: pandoc/static/js/plugins/books_overview/pandoc.js:119
+#: pandoc/static/js/plugins/books_overview/pandoc.js:116
 #, javascript-format
 msgid "Export as %s (via Pandoc)"
 msgstr "Exportar como %s (via Pandoc)"
 
-#: pandoc/static/js/plugins/books_overview/pandoc.js:123
+#: pandoc/static/js/plugins/books_overview/pandoc.js:120
 #, javascript-format
 msgid "Export book as %s using Pandoc."
 msgstr "Exporte o livro como %s usando Pandoc."
+
+#: pandoc/static/js/plugins/documents_overview/pandoc.js:78
+#, javascript-format
+msgid "Export the documents that have been selected as %s files using Pandoc."
+msgstr ""
+"Exporte os documentos que foram selecionados como arquivos %s usando Pandoc."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-14 12:15+0000\n"
+"POT-Creation-Date: 2026-06-02 17:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,7 +30,7 @@ msgstr "Der Pandoc-Export wurde gestartet."
 msgid "Pandoc export failed."
 msgstr "Der Pandoc-Export ist fehlgeschlagen."
 
-#: pandoc/static/js/modules/pandoc/book_exporter.js:107
+#: pandoc/static/js/modules/pandoc/book_exporter.js:112
 msgid "Untitled"
 msgstr "Ohne Titel"
 
@@ -107,8 +107,7 @@ msgstr "Pandoc-Markdown"
 
 #: pandoc/static/js/modules/pandoc/editor.js:209
 msgid "Export the document to a Pandoc Markdown file using pandoc."
-msgstr ""
-"Exportieren Sie das Dokument mit Pandoc in eine Pandoc-Markdown-Datei."
+msgstr "Exportieren Sie das Dokument mit Pandoc in eine Pandoc-Markdown-Datei."
 
 #: pandoc/static/js/modules/pandoc/editor.js:236
 msgid "PHP Markdown Extra"
@@ -156,6 +155,7 @@ msgid "Unknown file type"
 msgstr "Unbekannter Dateityp"
 
 #: pandoc/static/js/plugins/books_overview/pandoc.js:79
+#: pandoc/static/js/plugins/documents_overview/pandoc.js:73
 #, javascript-format
 msgid "Export selected as %s (via Pandoc)"
 msgstr "Export ausgewählt als %s (über Pandoc)"
@@ -165,12 +165,17 @@ msgstr "Export ausgewählt als %s (über Pandoc)"
 msgid "Export selected books as %s using Pandoc."
 msgstr "Exportieren Sie ausgewählte Bücher als %s mit Pandoc."
 
-#: pandoc/static/js/plugins/books_overview/pandoc.js:119
+#: pandoc/static/js/plugins/books_overview/pandoc.js:116
 #, javascript-format
 msgid "Export as %s (via Pandoc)"
 msgstr "Exportieren als %s (über Pandoc)"
 
-#: pandoc/static/js/plugins/books_overview/pandoc.js:123
+#: pandoc/static/js/plugins/books_overview/pandoc.js:120
 #, javascript-format
 msgid "Export book as %s using Pandoc."
 msgstr "Buch mit Pandoc als %s exportieren."
+
+#: pandoc/static/js/plugins/documents_overview/pandoc.js:78
+#, javascript-format
+msgid "Export the documents that have been selected as %s files using Pandoc."
+msgstr "Exportieren Sie die ausgewählten Dokumente als %s-Dateien mit Pandoc."

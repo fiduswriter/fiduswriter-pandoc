@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-14 12:15+0000\n"
+"POT-Creation-Date: 2026-06-02 17:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,7 +30,7 @@ msgstr "Pandoc-eksport er igangsat."
 msgid "Pandoc export failed."
 msgstr "Pandoc-eksport mislykkedes."
 
-#: pandoc/static/js/modules/pandoc/book_exporter.js:107
+#: pandoc/static/js/modules/pandoc/book_exporter.js:112
 msgid "Untitled"
 msgstr "Uden titel"
 
@@ -82,8 +82,7 @@ msgstr "GitHub-flavored Markdown"
 #: pandoc/static/js/modules/pandoc/editor.js:119
 msgid "Export the document to a GitHub-Flavored Markdown file using pandoc."
 msgstr ""
-"Eksporter dokumentet til en GitHub-flavored Markdown-fil ved hjælp af "
-"pandoc."
+"Eksporter dokumentet til en GitHub-flavored Markdown-fil ved hjælp af pandoc."
 
 #: pandoc/static/js/modules/pandoc/editor.js:146
 msgid "Markua"
@@ -155,6 +154,7 @@ msgid "Unknown file type"
 msgstr "Ukendt filtype"
 
 #: pandoc/static/js/plugins/books_overview/pandoc.js:79
+#: pandoc/static/js/plugins/documents_overview/pandoc.js:73
 #, javascript-format
 msgid "Export selected as %s (via Pandoc)"
 msgstr "Eksporter valgt som %s (via Pandoc)"
@@ -164,12 +164,19 @@ msgstr "Eksporter valgt som %s (via Pandoc)"
 msgid "Export selected books as %s using Pandoc."
 msgstr "Eksporter valgte bøger som %s ved hjælp af Pandoc."
 
-#: pandoc/static/js/plugins/books_overview/pandoc.js:119
+#: pandoc/static/js/plugins/books_overview/pandoc.js:116
 #, javascript-format
 msgid "Export as %s (via Pandoc)"
 msgstr "Eksporter som %s (via Pandoc)"
 
-#: pandoc/static/js/plugins/books_overview/pandoc.js:123
+#: pandoc/static/js/plugins/books_overview/pandoc.js:120
 #, javascript-format
 msgid "Export book as %s using Pandoc."
 msgstr "Eksporter bog som %s ved hjælp af Pandoc."
+
+#: pandoc/static/js/plugins/documents_overview/pandoc.js:78
+#, javascript-format
+msgid "Export the documents that have been selected as %s files using Pandoc."
+msgstr ""
+"Eksporter de dokumenter, der er blevet valgt som %s filer ved hjælp af "
+"Pandoc."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-14 12:15+0000\n"
+"POT-Creation-Date: 2026-06-02 17:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,7 +30,7 @@ msgstr "Pandoc 내보내기가 시작되었습니다."
 msgid "Pandoc export failed."
 msgstr "Pandoc 내보내기에 실패했습니다."
 
-#: pandoc/static/js/modules/pandoc/book_exporter.js:107
+#: pandoc/static/js/modules/pandoc/book_exporter.js:112
 msgid "Untitled"
 msgstr "제목 없음"
 
@@ -151,6 +151,7 @@ msgid "Unknown file type"
 msgstr "알 수 없는 파일 형식"
 
 #: pandoc/static/js/plugins/books_overview/pandoc.js:79
+#: pandoc/static/js/plugins/documents_overview/pandoc.js:73
 #, javascript-format
 msgid "Export selected as %s (via Pandoc)"
 msgstr "%s으로 내보내기 선택됨(Pandoc를 통해)"
@@ -160,12 +161,17 @@ msgstr "%s으로 내보내기 선택됨(Pandoc를 통해)"
 msgid "Export selected books as %s using Pandoc."
 msgstr "Pandoc을 사용하여 선택한 책을 %s로 내보냅니다."
 
-#: pandoc/static/js/plugins/books_overview/pandoc.js:119
+#: pandoc/static/js/plugins/books_overview/pandoc.js:116
 #, javascript-format
 msgid "Export as %s (via Pandoc)"
 msgstr "%s로 내보내기(Pandoc를 통해)"
 
-#: pandoc/static/js/plugins/books_overview/pandoc.js:123
+#: pandoc/static/js/plugins/books_overview/pandoc.js:120
 #, javascript-format
 msgid "Export book as %s using Pandoc."
 msgstr "Pandoc을 사용하여 책을 %s으로 내보냅니다."
+
+#: pandoc/static/js/plugins/documents_overview/pandoc.js:78
+#, javascript-format
+msgid "Export the documents that have been selected as %s files using Pandoc."
+msgstr "Pandoc을 사용하여 %s 파일로 선택된 문서를 내보냅니다."
