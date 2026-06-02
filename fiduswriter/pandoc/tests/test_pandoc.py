@@ -399,9 +399,10 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         self.driver.find_element(
             By.XPATH, '//*[normalize-space()="Other formats"]'
         ).click()
-        self.driver.find_element(
-            By.XPATH, '//*[normalize-space()="Markdown"]'
-        ).click()
+        self.retry_click(
+            self.driver,
+            (By.XPATH, '//*[normalize-space()="Markdown"]'),
+        )
 
         self.retry_click(
             self.driver,
