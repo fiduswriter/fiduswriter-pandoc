@@ -16,7 +16,7 @@ jobs:
   pre-commit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: actions/setup-python@v6
         with:
           python-version: "3.14"
@@ -39,8 +39,8 @@ jobs:
         uses: actions/setup-python@v6
         with:
           python-version: "3.14"
-      - uses: actions/checkout@v4
-      - uses: nanasess/setup-chromedriver@master
+      - uses: actions/checkout@v6
+      - uses: nanasess/setup-chromedriver@v3
       - name: Install dependencies
         run: |
           sudo apt update
@@ -68,7 +68,7 @@ jobs:
           mv ../ci/.coveragerc ./
           coverage run --concurrency=multiprocessing,thread $(which fiduswriter) setup --no-static
       - name: Run test pandoc
-        uses: nick-invision/retry@v3
+        uses: nick-invision/retry@v4
         with:
           timeout_minutes: 8
           max_attempts: 3
@@ -78,7 +78,7 @@ jobs:
             coverage run --concurrency=multiprocessing,thread $(which fiduswriter) test pandoc
       - name: Upload failed test screenshots
         if: ${{ failure() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: failure-artifacts
           path: ${{ github.workspace }}/fiduswriter/screenshots/
