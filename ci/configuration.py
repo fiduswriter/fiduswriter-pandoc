@@ -1,4 +1,4 @@
-INSTALLED_APPS = ["pandoc"]
+INSTALLED_APPS = ["pandoc", "book"]
 
 # Use plain StaticFilesStorage instead of CompressedManifestStaticFilesStorage
 # during CI tests.  The manifest storage requires a pre-built staticfiles.json
