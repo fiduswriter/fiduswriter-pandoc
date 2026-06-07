@@ -30,10 +30,24 @@ export class PandocConversionImporter extends PandocImporter {
             standalone: true,
             from,
             to: "json",
-            extractMedia: "."
+            "extract-media": "."
         }
         const {convert} = await import("pandoc-wasm")
-        const {stdout: out, mediaFiles} = await convert(options, inData)
+
+        // Build files object for pandoc-wasm virtual filesystem
+        const files = {}
+        if (this.additionalFiles?.bibliography) {
+            files["bibliography.bib"] = this.additionalFiles.bibliography
+        }
+        if (this.additionalFiles?.images) {
+            Object.entries(this.additionalFiles.images).forEach(
+                ([path, blob]) => {
+                    files[path] = blob
+                }
+            )
+        }
+
+        const {stdout: out, mediaFiles} = await convert(options, inData, files)
         const images = Object.assign(
             this.additionalFiles?.images || {},
             mediaFiles
