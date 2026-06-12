@@ -1,5 +1,4 @@
 import download from "downloadjs"
-import {convert} from "pandoc-wasm"
 
 import {get} from "../common"
 import {PandocExporter} from "../exporter/pandoc"
@@ -20,8 +19,9 @@ export class PandocConversionExporter extends PandocExporter {
         this.options = options
     }
 
-    runPandocConversion() {
-        return Promise.all(
+    async runPandocConversion() {
+        const {convert} = await import("pandoc-wasm")
+        const binaryFiles = await Promise.all(
             this.httpFiles.map(binaryFile =>
                 get(binaryFile.url)
                     .then(response => response.blob())
@@ -32,26 +32,25 @@ export class PandocConversionExporter extends PandocExporter {
                         })
                     )
             )
-        ).then(binaryFiles => {
-            const files = {}
-            this.textFiles.forEach(file => {
-                files[file.filename] = file.contents
-            })
-            binaryFiles.forEach(file => {
-                files[file.filename] = file.contents
-            })
-            const options = {
-                from: "json",
-                to: this.format,
-                standalone: true
-            }
-            if (files["bibliography.bib"]) {
-                options.bibliography = "bibliography.bib"
-                options.citeproc = true
-            }
-            const content = JSON.stringify(this.conversion.json)
-            return convert(options, content, files)
+        )
+        const files = {}
+        this.textFiles.forEach(file => {
+            files[file.filename] = file.contents
         })
+        binaryFiles.forEach(file => {
+            files[file.filename] = file.contents
+        })
+        const options = {
+            from: "json",
+            to: this.format,
+            standalone: true
+        }
+        if (files["bibliography.bib"]) {
+            options.bibliography = "bibliography.bib"
+            options.citeproc = true
+        }
+        const content = JSON.stringify(this.conversion.json)
+        return convert(options, content, files)
     }
 
     createExport() {

@@ -1,6 +1,5 @@
 import {BibLatexExporter} from "biblatex-csl-converter"
 import download from "downloadjs"
-import {convert} from "pandoc-wasm"
 
 import {getMissingChapterData} from "../books/exporter/tools"
 import {addAlert, get} from "../common"
@@ -77,6 +76,7 @@ export class PandocBookExporter {
     }
 
     async exportContents() {
+        const {convert} = await import("pandoc-wasm")
         const sortedChapters = [...this.book.chapters].sort(
             (a, b) => a.number - b.number
         )
