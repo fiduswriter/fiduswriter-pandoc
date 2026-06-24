@@ -2,7 +2,7 @@ import download from "downloadjs"
 
 import {PandocExporter} from "@fiduswriter/document/exporter/pandoc/index"
 import {createSlug} from "@fiduswriter/document/exporter/tools/file"
-import {get} from "../common"
+import {get} from "fwtoolkit"
 
 export class PandocConversionExporter extends PandocExporter {
     constructor(
