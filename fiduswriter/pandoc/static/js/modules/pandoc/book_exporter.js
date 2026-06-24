@@ -1,13 +1,16 @@
 import {BibLatexExporter} from "biblatex-csl-converter"
 import download from "downloadjs"
 
+import {PandocExporterCitations} from "@fiduswriter/document/exporter/pandoc/citations"
+import {PandocExporterConvert} from "@fiduswriter/document/exporter/pandoc/convert"
+import {
+    fixTables,
+    removeHidden
+} from "@fiduswriter/document/exporter/tools/doc_content"
+import {createSlug} from "@fiduswriter/document/exporter/tools/file"
+import {ZipFileCreator} from "@fiduswriter/document/exporter/tools/zip"
 import {getMissingChapterData} from "../books/exporter/tools"
 import {addAlert, get} from "../common"
-import {PandocExporterCitations} from "../exporter/pandoc/citations"
-import {PandocExporterConvert} from "../exporter/pandoc/convert"
-import {fixTables, removeHidden} from "../exporter/tools/doc_content"
-import {createSlug} from "../exporter/tools/file"
-import {ZipFileCreator} from "../exporter/tools/zip"
 
 /**
  * Exports a book via pandoc-wasm, converting each chapter to a chosen format

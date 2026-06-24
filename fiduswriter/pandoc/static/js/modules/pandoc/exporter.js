@@ -1,8 +1,8 @@
 import download from "downloadjs"
 
+import {PandocExporter} from "@fiduswriter/document/exporter/pandoc/index"
+import {createSlug} from "@fiduswriter/document/exporter/tools/file"
 import {get} from "../common"
-import {PandocExporter} from "../exporter/pandoc"
-import {createSlug} from "../exporter/tools/file"
 
 export class PandocConversionExporter extends PandocExporter {
     constructor(
