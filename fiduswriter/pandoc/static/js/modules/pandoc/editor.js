@@ -1,3 +1,5 @@
+import {gettext} from "fwtoolkit"
+
 export class EditorPandoc {
     constructor(editor) {
         this.editor = editor

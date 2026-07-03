@@ -1,3 +1,4 @@
+import {gettext, interpolate} from "fwtoolkit"
 import {getMissingDocumentListData} from "../../modules/documents/tools"
 import {PandocConversionExporter} from "../../modules/pandoc/exporter"
 

@@ -1,3 +1,4 @@
+import {gettext} from "fwtoolkit"
 import {PandocImporter} from "../importer/pandoc"
 import {formats} from "./constants"
 import {fileToString} from "./helpers"
