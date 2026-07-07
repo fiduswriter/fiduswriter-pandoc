@@ -1,4 +1,4 @@
-import {gettext, interpolate} from "fwtoolkit"
+import {addProgress, gettext, interpolate, shortFileTitle} from "fwtoolkit"
 import {getMissingDocumentListData} from "../../modules/documents/tools"
 import {PandocConversionExporter} from "../../modules/pandoc/exporter"
 
@@ -43,6 +43,14 @@ export class DocsPandoc {
      * Helper: start a PandocConversionExporter for the given document.
      */
     static exportDoc(doc, overview, format, ext, mime) {
+        const title = shortFileTitle(doc.title, doc.path || "")
+        const task = addProgress(
+            "info",
+            `${title}: ${gettext("Exporting via Pandoc...")}`,
+            {autoClose: false}
+        )
+        const progressCallback = (message, percentage) =>
+            task.update(percentage, message)
         const bibDB = {db: doc.bibliography || {}}
         const imageDB = {db: doc.images || {}}
         const csl = overview.app.csl
@@ -56,9 +64,13 @@ export class DocsPandoc {
             bibDB,
             imageDB,
             csl,
-            updated
+            updated,
+            progressCallback
         )
-        return exporter.init()
+        return exporter.init().catch(error => {
+            task.close()
+            throw error
+        })
     }
 
     /**

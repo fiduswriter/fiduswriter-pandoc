@@ -1,3 +1,4 @@
+import {addProgress, gettext, interpolate} from "fwtoolkit"
 import {PandocBookExporter} from "../../modules/pandoc/book_exporter"
 
 /**
@@ -52,6 +53,13 @@ export class BooksPandoc {
      * Helper: start a PandocBookExporter for the given parameters.
      */
     static exportBook(book, overview, format, ext, mime) {
+        const task = addProgress(
+            "info",
+            `${book.title}: ${gettext("Exporting via Pandoc...")}`,
+            {autoClose: false}
+        )
+        const progressCallback = (message, percentage) =>
+            task.update(percentage, message)
         const exporter = new PandocBookExporter(
             overview.schema,
             overview.app.csl,
@@ -61,9 +69,14 @@ export class BooksPandoc {
             new Date(book.updated * 1000),
             format,
             ext,
-            mime
+            mime,
+            {},
+            progressCallback
         )
-        return exporter.init()
+        return exporter.init().catch(error => {
+            task.close()
+            throw error
+        })
     }
 
     /**

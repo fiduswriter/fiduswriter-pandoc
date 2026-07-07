@@ -10,7 +10,7 @@ import {
 } from "@fiduswriter/document/exporter/tools/doc_content"
 import {createSlug} from "@fiduswriter/document/exporter/tools/file"
 import {ZipFileCreator} from "@fiduswriter/document/exporter/tools/zip"
-import {addAlert, get, gettext} from "fwtoolkit"
+import {get, gettext, interpolate} from "fwtoolkit"
 
 /**
  * Exports a book via pandoc-wasm, converting each chapter to a chosen format
@@ -35,7 +35,8 @@ export class PandocBookExporter {
         format,
         fileExtension,
         mimeType,
-        options = {}
+        options = {},
+        progressCallback
     ) {
         this.schema = schema
         this.csl = csl
@@ -47,6 +48,7 @@ export class PandocBookExporter {
         this.fileExtension = fileExtension
         this.mimeType = mimeType
         this.options = options
+        this.progressCallback = progressCallback
 
         this.textFiles = []
         this.httpFiles = []
@@ -55,25 +57,17 @@ export class PandocBookExporter {
 
     init() {
         if (this.book.chapters.length === 0) {
-            addAlert(
-                "error",
+            throw new Error(
                 gettext("Book cannot be exported due to lack of chapters.")
             )
-            return Promise.resolve(false)
         }
 
-        addAlert(
-            "info",
-            `${this.book.title}: ${gettext("Pandoc export has been initiated.")}`
-        )
+        this.progressCallback?.(gettext("Pandoc export has been initiated."), 0)
 
         return getMissingChapterData(this.book, this.docList, this.schema)
             .then(() => this.exportContents())
             .catch(error => {
-                addAlert(
-                    "error",
-                    `${this.book.title}: ${gettext("Pandoc export failed.")}`
-                )
+                this.progressCallback?.(gettext("Pandoc export failed."), 100)
                 throw error
             })
     }
@@ -111,6 +105,14 @@ export class PandocBookExporter {
             if (!doc) {
                 continue
             }
+
+            this.progressCallback?.(
+                interpolate(gettext("Converting chapter %s of %s..."), [
+                    chapterIndex + 1,
+                    sortedChapters.length
+                ]),
+                Math.round((chapterIndex / sortedChapters.length) * 80)
+            )
 
             const chapterSlug = createSlug(doc.title || gettext("Untitled"))
             const docContent = fixTables(removeHidden(doc.content))
@@ -238,7 +240,13 @@ export class PandocBookExporter {
         }
 
         // ── 8. Create and download the ZIP ─────────────────────────────────
-        return this.createZip()
+        this.progressCallback?.(gettext("Creating ZIP archive..."), 90)
+        return this.createZip().then(() => {
+            this.progressCallback?.(
+                gettext("Pandoc book export complete."),
+                100
+            )
+        })
     }
 
     createZip() {
