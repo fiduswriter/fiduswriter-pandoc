@@ -9,7 +9,7 @@ import {
     removeHidden
 } from "@fiduswriter/document/exporter/tools/doc_content"
 import {createSlug} from "@fiduswriter/document/exporter/tools/file"
-import {ZipFileCreator} from "@fiduswriter/document/exporter/tools/zip"
+import {ZipFileCreator} from "fwtoolkit/file/zip"
 import {get, gettext, interpolate} from "fwtoolkit"
 
 /**
