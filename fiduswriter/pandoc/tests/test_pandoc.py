@@ -292,10 +292,7 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         ).click()
         self.driver.find_element(
             By.CSS_SELECTOR,
-            (
-                "body > div.ui-content-menu.ui-corner-all.ui-widget."
-                "ui-widget-content.ui-front > div > div > ul > li:nth-child(1)"
-            ),
+            "body > div.fw-content-menu > div > div > ul > li:nth-child(1)",
         ).click()
         self.driver.find_element(By.CSS_SELECTOR, ".holder").send_keys(
             "Johannes Wilm"
@@ -364,7 +361,7 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
             EC.element_to_be_clickable(
                 (
                     By.XPATH,
-                    '(//div[contains(@class, "ui-content-menu")])'
+                    '(//div[contains(@class, "fw-content-menu")])'
                     '[last()]//li[contains(normalize-space(.), "Configure")]',
                 )
             )
