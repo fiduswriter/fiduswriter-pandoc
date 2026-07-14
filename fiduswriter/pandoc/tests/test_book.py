@@ -218,20 +218,20 @@ class BookPandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         # Wait for the document list to be fully rendered before interacting.
         WebDriverWait(self.driver, self.wait_time).until(
             EC.visibility_of_element_located(
-                (By.CSS_SELECTOR, "#book-document-list .file")
+                (By.CSS_SELECTOR, "#book-document-list .fw-file")
             )
         )
 
         # Select the first document.
         self.driver.find_element(
-            By.CSS_SELECTOR, "#book-document-list .file .file-name"
+            By.CSS_SELECTOR, "#book-document-list .fw-file .fw-file-name"
         ).click()
         # Ensure the file selector has actually marked it as selected.
         WebDriverWait(self.driver, self.wait_time).until(
             EC.presence_of_element_located(
                 (
                     By.CSS_SELECTOR,
-                    "#book-document-list .file .file-name.selected",
+                    "#book-document-list .fw-file .fw-file-name.selected",
                 )
             )
         )
@@ -239,13 +239,13 @@ class BookPandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         # Select the second document.
         self.driver.find_element(
             By.CSS_SELECTOR,
-            "#book-document-list .file:nth-child(2) .file-name",
+            "#book-document-list .fw-file:nth-child(2) .fw-file-name",
         ).click()
         WebDriverWait(self.driver, self.wait_time).until(
             lambda driver: len(
                 driver.find_elements(
                     By.CSS_SELECTOR,
-                    "#book-document-list .file .file-name.selected",
+                    "#book-document-list .fw-file .fw-file-name.selected",
                 )
             )
             == 2
