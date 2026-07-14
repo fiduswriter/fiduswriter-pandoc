@@ -1,4 +1,7 @@
+import {getMissingChapterData} from "@fiduswriter/books-document/exporter/tools"
 import {addProgress, gettext, interpolate} from "fwtoolkit"
+import {chapterLoader} from "../../../book/static/js/modules/books/adapters/chapter-loader"
+import {e2eeStrategy} from "../../../book/static/js/modules/books/adapters/e2ee-strategy"
 import {PandocBookExporter} from "../../modules/pandoc/book_exporter"
 
 /**
@@ -60,23 +63,36 @@ export class BooksPandoc {
         )
         const progressCallback = (message, percentage) =>
             task.update(percentage, message)
-        const exporter = new PandocBookExporter(
-            overview.schema,
-            overview.app.csl,
+        return getMissingChapterData(
             book,
-            overview.user,
             overview.documentList,
-            new Date(book.updated * 1000),
-            format,
-            ext,
-            mime,
-            {},
-            progressCallback
+            overview.schema,
+            {
+                loader: chapterLoader,
+                e2ee: e2eeStrategy,
+                progressCallback
+            }
         )
-        return exporter.init().catch(error => {
-            task.close()
-            throw error
-        })
+            .then(() => {
+                const exporter = new PandocBookExporter(
+                    overview.schema,
+                    overview.app.csl,
+                    book,
+                    overview.user,
+                    overview.documentList,
+                    new Date(book.updated * 1000),
+                    format,
+                    ext,
+                    mime,
+                    {},
+                    progressCallback
+                )
+                return exporter.init()
+            })
+            .catch(error => {
+                task.close()
+                throw error
+            })
     }
 
     /**
