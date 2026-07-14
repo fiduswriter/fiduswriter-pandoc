@@ -2,9 +2,6 @@
     dependencies: {
        "@fiduswriter/books-document": "^0.1.7",
        "@fiduswriter/document": "^0.2.20",
-       "bibliojson": "^4.0.0",
-       "downloadjs": "^1.4.7",
-       "fwtoolkit": "^0.1.9",
        "pandoc-wasm": "1.0.1"
     }
 }
