@@ -231,7 +231,7 @@ class BookPandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
             EC.presence_of_element_located(
                 (
                     By.CSS_SELECTOR,
-                    "#book-document-list .fw-file .fw-file-name.selected",
+                    "#book-document-list .fw-file .fw-file-name.fw-selected",
                 )
             )
         )
@@ -245,7 +245,7 @@ class BookPandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
             lambda driver: len(
                 driver.find_elements(
                     By.CSS_SELECTOR,
-                    "#book-document-list .fw-file .fw-file-name.selected",
+                    "#book-document-list .fw-file .fw-file-name.fw-selected",
                 )
             )
             == 2
