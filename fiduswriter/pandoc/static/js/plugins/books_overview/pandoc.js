@@ -56,7 +56,7 @@ export class BooksPandoc {
         const task = addProgress(
             "info",
             `${book.title}: ${gettext("Exporting via Pandoc...")}`,
-            {autoClose: false}
+            {autoClose: 6000}
         )
         const progressCallback = (message, percentage) =>
             task.update(percentage, message)

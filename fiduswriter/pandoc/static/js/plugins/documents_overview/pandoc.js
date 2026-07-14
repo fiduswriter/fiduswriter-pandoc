@@ -47,7 +47,7 @@ export class DocsPandoc {
         const task = addProgress(
             "info",
             `${title}: ${gettext("Exporting via Pandoc...")}`,
-            {autoClose: false}
+            {autoClose: 6000}
         )
         const progressCallback = (message, percentage) =>
             task.update(percentage, message)

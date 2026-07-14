@@ -7,7 +7,7 @@ const exportWithProgress = (editor, format, ext, mime, options) =>
         const task = addProgress(
             "info",
             `${title}: ${gettext("Exporting via Pandoc...")}`,
-            {autoClose: false}
+            {autoClose: 6000}
         )
         const exporter = new PandocConversionExporter(
             format,
