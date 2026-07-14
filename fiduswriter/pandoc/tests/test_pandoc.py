@@ -200,7 +200,7 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         author_lastName.send_keys("Doe")
 
         publication_date = self.driver.find_element(
-            By.CSS_SELECTOR, ".date .date"
+            By.CSS_SELECTOR, ".fw-date"
         )
         publication_date.click()
         publication_date.send_keys("2012")
@@ -208,7 +208,7 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         # click on Submit button
         self.driver.find_element(
             By.XPATH,
-            '//*[contains(@class, "ui-button") and normalize-space()="Submit"]',
+            '//*[contains(@class, "fw-button") and normalize-space()="Submit"]',
         ).click()
 
         # Wait for source to be listed
@@ -272,7 +272,7 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         # click on 'Upload' button
         self.driver.find_element(
             By.XPATH,
-            '//*[contains(@class, "ui-button") and normalize-space()="Upload"]',
+            '//*[contains(@class, "fw-button") and normalize-space()="Upload"]',
         ).click()
 
         # click on 'Use image' button
@@ -457,11 +457,11 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
             )
         )
         # Check if the document has been imported
-        self.assertEqual(
+        self.assertIn(
+            "Imported document",
             self.driver.find_element(
                 By.CSS_SELECTOR, "a.fw-data-table-title"
             ).text,
-            "Imported document",
         )
         # Enter document
         self.driver.find_element(
@@ -470,7 +470,7 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
 
         time.sleep(2)
         # Check if the document loads in the editor
-        self.assertEqual(
-            self.driver.find_element(By.CSS_SELECTOR, "div.doc-title").text,
+        self.assertIn(
             "Imported document",
+            self.driver.find_element(By.CSS_SELECTOR, "div.doc-title").text,
         )

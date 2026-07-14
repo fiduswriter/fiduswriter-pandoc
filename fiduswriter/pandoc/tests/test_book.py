@@ -116,7 +116,7 @@ class BookPandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
 
         self.driver.find_element(
             By.XPATH,
-            '//*[contains(@class,"ui-button") and normalize-space()="Upload"]',
+            '//*[contains(@class, "fw-button") and normalize-space()="Upload"]',
         ).click()
 
         WebDriverWait(self.driver, self.wait_time).until(
@@ -269,7 +269,7 @@ class BookPandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
                 EC.element_to_be_clickable(
                     (
                         By.XPATH,
-                        '//*[contains(@class, "ui-button") '
+                        '//*[contains(@class, "fw-button") '
                         'and normalize-space()="Submit"]',
                     )
                 )
@@ -278,7 +278,7 @@ class BookPandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
             # Wait for the dialog to close before looking for the book list.
             WebDriverWait(self.driver, self.wait_time * 2).until(
                 EC.invisibility_of_element_located(
-                    (By.CSS_SELECTOR, ".ui-dialog")
+                    (By.CSS_SELECTOR, ".fw-dialog")
                 )
             )
             # The table re-renders after a save; wait for the book title.
@@ -388,7 +388,7 @@ class BookPandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
             EC.element_to_be_clickable(
                 (
                     By.XPATH,
-                    '//*[contains(@class, "ui-button") '
+                    '//*[contains(@class, "fw-button") '
                     'and normalize-space()="Export"]',
                 )
             )
