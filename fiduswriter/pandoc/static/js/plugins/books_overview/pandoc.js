@@ -1,7 +1,7 @@
 import {getMissingChapterData} from "@fiduswriter/books-document/exporter/tools"
 import {PandocBookExporter} from "@fiduswriter/pandoc/book_exporter"
 import {addProgress, gettext, interpolate} from "fwtoolkit"
-import {chapterLoader} from "../../modules/books/adapters/chapter-loader"
+import {createChapterLoader} from "../../modules/books/adapters/chapter-loader"
 import {e2eeStrategy} from "../../modules/books/adapters/e2ee-strategy"
 
 /**
@@ -68,7 +68,7 @@ export class BooksPandoc {
             overview.documentList,
             overview.schema,
             {
-                loader: chapterLoader,
+                loader: createChapterLoader(overview.app),
                 e2ee: e2eeStrategy,
                 progressCallback
             }
