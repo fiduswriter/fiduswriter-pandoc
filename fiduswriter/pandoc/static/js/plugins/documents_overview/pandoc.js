@@ -1,6 +1,6 @@
+import {getMissingDocumentListData} from "@fiduswriter/frontend/documents/tools"
+import {PandocConversionExporter} from "@fiduswriter/pandoc/exporter"
 import {addProgress, gettext, interpolate, shortFileTitle} from "fwtoolkit"
-import {getMissingDocumentListData} from "../../modules/documents/tools"
-import {PandocConversionExporter} from "../../modules/pandoc/exporter"
 
 /**
  * Pandoc plugin for the documents overview.

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-02 17:43+0000\n"
+"POT-Creation-Date: 2026-07-23 09:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: pandoc/static/js/modules/pandoc/book_exporter.js:58
+#: pandoc/static/js/modules/pandoc/book_exporter.js:61
 msgid "Book cannot be exported due to lack of chapters."
 msgstr "Bogen kan ikke eksporteres på grund af mangel på kapitler."
 
@@ -26,155 +26,191 @@ msgstr "Bogen kan ikke eksporteres på grund af mangel på kapitler."
 msgid "Pandoc export has been initiated."
 msgstr "Pandoc-eksport er igangsat."
 
-#: pandoc/static/js/modules/pandoc/book_exporter.js:73
+#: pandoc/static/js/modules/pandoc/book_exporter.js:70
 msgid "Pandoc export failed."
 msgstr "Pandoc-eksport mislykkedes."
 
-#: pandoc/static/js/modules/pandoc/book_exporter.js:112
+#: pandoc/static/js/modules/pandoc/book_exporter.js:110
+#, javascript-format
+msgid "Converting chapter %s of %s..."
+msgstr "Konverterer kapitel %s af %s..."
+
+#: pandoc/static/js/modules/pandoc/book_exporter.js:117
 msgid "Untitled"
 msgstr "Uden titel"
 
-#: pandoc/static/js/modules/pandoc/editor.js:16
+#: pandoc/static/js/modules/pandoc/book_exporter.js:243
+msgid "Creating ZIP archive..."
+msgstr "Opretter ZIP-arkiv..."
+
+#: pandoc/static/js/modules/pandoc/book_exporter.js:246
+msgid "Pandoc book export complete."
+msgstr "Pandoc bogeksport færdig."
+
+#: pandoc/static/js/modules/pandoc/editor.js:9
+#: pandoc/static/js/plugins/books_overview/pandoc.js:61
+#: pandoc/static/js/plugins/documents_overview/pandoc.js:49
+msgid "Exporting via Pandoc..."
+msgstr "Eksporterer via Pandoc..."
+
+#: pandoc/static/js/modules/pandoc/editor.js:45
 msgid "Other formats"
 msgstr "Andre formater"
 
-#: pandoc/static/js/modules/pandoc/editor.js:18
+#: pandoc/static/js/modules/pandoc/editor.js:47
 msgid "Export to a lesser used format using Pandoc."
 msgstr "Eksporter til et mindre brugt format ved hjælp af Pandoc."
 
-#: pandoc/static/js/modules/pandoc/editor.js:22
+#: pandoc/static/js/modules/pandoc/editor.js:51
 msgid "DocBook"
 msgstr "DocBook"
 
-#: pandoc/static/js/modules/pandoc/editor.js:25
+#: pandoc/static/js/modules/pandoc/editor.js:54
 msgid "Export the document to a DocBook file using pandoc."
 msgstr "Eksporter dokumentet til en DocBook-fil ved hjælp af Pandoc."
 
-#: pandoc/static/js/modules/pandoc/editor.js:50
+#: pandoc/static/js/modules/pandoc/editor.js:66
 msgid "Indesign ICML"
 msgstr "Indesign ICML"
 
-#: pandoc/static/js/modules/pandoc/editor.js:53
+#: pandoc/static/js/modules/pandoc/editor.js:69
 msgid "Export the document to an Adobe Indesign ICML file using pandoc."
 msgstr ""
 "Eksporter dokumentet til en Adobe Indesign ICML-fil ved hjælp af pandoc."
 
-#: pandoc/static/js/modules/pandoc/editor.js:78
+#: pandoc/static/js/modules/pandoc/editor.js:81
 msgid "Markdown"
 msgstr "Markdown"
 
-#: pandoc/static/js/modules/pandoc/editor.js:81
+#: pandoc/static/js/modules/pandoc/editor.js:84
 msgid "Export the document to a markdown file using pandoc."
 msgstr "Eksporter dokumentet til en markdown-fil ved hjælp af Pandoc."
 
-#: pandoc/static/js/modules/pandoc/editor.js:86
+#: pandoc/static/js/modules/pandoc/editor.js:89
 msgid "Commonmark"
 msgstr "Fællesmærke"
 
-#: pandoc/static/js/modules/pandoc/editor.js:89
+#: pandoc/static/js/modules/pandoc/editor.js:92
 msgid "Export the document to a Commonmark file using pandoc."
 msgstr "Eksporter dokumentet til en Commonmark-fil ved hjælp af pandoc."
 
-#: pandoc/static/js/modules/pandoc/editor.js:116
+#: pandoc/static/js/modules/pandoc/editor.js:105
 msgid "GitHub-Flavored Markdown"
 msgstr "GitHub-flavored Markdown"
 
-#: pandoc/static/js/modules/pandoc/editor.js:119
+#: pandoc/static/js/modules/pandoc/editor.js:108
 msgid "Export the document to a GitHub-Flavored Markdown file using pandoc."
 msgstr ""
-"Eksporter dokumentet til en GitHub-flavored Markdown-fil ved hjælp af pandoc."
+"Eksporter dokumentet til en GitHub-flavored Markdown-fil ved hjælp af "
+"pandoc."
 
-#: pandoc/static/js/modules/pandoc/editor.js:146
+#: pandoc/static/js/modules/pandoc/editor.js:121
 msgid "Markua"
 msgstr "Markua"
 
-#: pandoc/static/js/modules/pandoc/editor.js:149
+#: pandoc/static/js/modules/pandoc/editor.js:124
 msgid "Export the document to a Markua file using pandoc."
 msgstr "Eksporter dokumentet til en Markua-fil ved hjælp af pandoc."
 
-#: pandoc/static/js/modules/pandoc/editor.js:176
+#: pandoc/static/js/modules/pandoc/editor.js:137
 msgid "MultiMarkdown"
 msgstr "MultiMarkdown"
 
-#: pandoc/static/js/modules/pandoc/editor.js:179
+#: pandoc/static/js/modules/pandoc/editor.js:140
 msgid "Export the document to a MultiMarkdown file using pandoc."
 msgstr "Eksporter dokumentet til en MultiMarkdown-fil ved hjælp af Pandoc."
 
-#: pandoc/static/js/modules/pandoc/editor.js:206
+#: pandoc/static/js/modules/pandoc/editor.js:153
 msgid "Pandoc Markdown"
 msgstr "Pandoc Markdown"
 
-#: pandoc/static/js/modules/pandoc/editor.js:209
+#: pandoc/static/js/modules/pandoc/editor.js:156
 msgid "Export the document to a Pandoc Markdown file using pandoc."
 msgstr "Eksporter dokumentet til en Pandoc Markdown-fil ved hjælp af Pandoc."
 
-#: pandoc/static/js/modules/pandoc/editor.js:236
+#: pandoc/static/js/modules/pandoc/editor.js:169
 msgid "PHP Markdown Extra"
 msgstr "PHP Markdown Ekstra"
 
-#: pandoc/static/js/modules/pandoc/editor.js:239
+#: pandoc/static/js/modules/pandoc/editor.js:172
 msgid "Export the document to a PHP Markdown Extra file using pandoc."
 msgstr ""
 "Eksporter dokumentet til en PHP Markdown Extra-fil ved hjælp af pandoc."
 
-#: pandoc/static/js/modules/pandoc/editor.js:268
+#: pandoc/static/js/modules/pandoc/editor.js:187
 msgid "Richtext"
 msgstr "Richtext"
 
-#: pandoc/static/js/modules/pandoc/editor.js:271
+#: pandoc/static/js/modules/pandoc/editor.js:190
 msgid "Export the document to a richtext file using pandoc."
 msgstr "Eksporter dokumentet til en rigtekstfil ved hjælp af Pandoc."
 
-#: pandoc/static/js/modules/pandoc/editor.js:296
+#: pandoc/static/js/modules/pandoc/editor.js:203
 msgid "Textile"
 msgstr "Tekstil"
 
-#: pandoc/static/js/modules/pandoc/editor.js:299
+#: pandoc/static/js/modules/pandoc/editor.js:206
 msgid "Export the document to a textile file using pandoc."
 msgstr "Eksporter dokumentet til en tekstilfil ved hjælp af Pandoc."
 
-#: pandoc/static/js/modules/pandoc/editor.js:324
+#: pandoc/static/js/modules/pandoc/editor.js:218
 msgid "TEI Simple"
 msgstr "TEI Simpel"
 
-#: pandoc/static/js/modules/pandoc/editor.js:327
+#: pandoc/static/js/modules/pandoc/editor.js:221
 msgid "Export the document to a TEI Simple file using pandoc."
 msgstr "Eksporter dokumentet til en TEI Simple-fil ved hjælp af pandoc."
 
-#: pandoc/static/js/modules/pandoc/editor.js:352
+#: pandoc/static/js/modules/pandoc/editor.js:233
 msgid "Typst"
 msgstr "Typst"
 
-#: pandoc/static/js/modules/pandoc/editor.js:355
+#: pandoc/static/js/modules/pandoc/editor.js:236
 msgid "Export the document to a typst file using pandoc."
 msgstr "Eksporter dokumentet til en typst-fil ved hjælp af Pandoc."
 
-#: pandoc/static/js/modules/pandoc/importer.js:16
+#: pandoc/static/js/modules/pandoc/exporter.js:24
+msgid "Converting with Pandoc..."
+msgstr "Konvertering med Pandoc..."
+
+#: pandoc/static/js/modules/pandoc/exporter.js:66
+msgid "Downloading converted file..."
+msgstr "Downloader konverteret fil..."
+
+#: pandoc/static/js/modules/pandoc/exporter.js:79
+msgid "Creating Pandoc archive..."
+msgstr "Opretter Pandoc-arkiv..."
+
+#: pandoc/static/js/modules/pandoc/exporter.js:95
+msgid "Pandoc export complete."
+msgstr "Pandoc-eksport færdig."
+
+#: pandoc/static/js/modules/pandoc/importer.js:17
 msgid "Unknown file type"
 msgstr "Ukendt filtype"
 
-#: pandoc/static/js/plugins/books_overview/pandoc.js:79
-#: pandoc/static/js/plugins/documents_overview/pandoc.js:73
+#: pandoc/static/js/plugins/books_overview/pandoc.js:108
+#: pandoc/static/js/plugins/documents_overview/pandoc.js:86
 #, javascript-format
 msgid "Export selected as %s (via Pandoc)"
 msgstr "Eksporter valgt som %s (via Pandoc)"
 
-#: pandoc/static/js/plugins/books_overview/pandoc.js:83
+#: pandoc/static/js/plugins/books_overview/pandoc.js:112
 #, javascript-format
 msgid "Export selected books as %s using Pandoc."
 msgstr "Eksporter valgte bøger som %s ved hjælp af Pandoc."
 
-#: pandoc/static/js/plugins/books_overview/pandoc.js:116
+#: pandoc/static/js/plugins/books_overview/pandoc.js:145
 #, javascript-format
 msgid "Export as %s (via Pandoc)"
 msgstr "Eksporter som %s (via Pandoc)"
 
-#: pandoc/static/js/plugins/books_overview/pandoc.js:120
+#: pandoc/static/js/plugins/books_overview/pandoc.js:149
 #, javascript-format
 msgid "Export book as %s using Pandoc."
 msgstr "Eksporter bog som %s ved hjælp af Pandoc."
 
-#: pandoc/static/js/plugins/documents_overview/pandoc.js:78
+#: pandoc/static/js/plugins/documents_overview/pandoc.js:91
 #, javascript-format
 msgid "Export the documents that have been selected as %s files using Pandoc."
 msgstr ""

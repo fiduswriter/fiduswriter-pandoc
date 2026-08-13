@@ -305,6 +305,11 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         self.driver.find_element(By.CSS_SELECTOR, ".license-start").send_keys(
             "1998-04-23"
         )
+        WebDriverWait(self.driver, self.wait_time).until(
+            EC.invisibility_of_element_located(
+                (By.CSS_SELECTOR, "#fw-alerts-wrapper li.fw-visible")
+            )
+        )
         self.driver.find_element(
             By.CSS_SELECTOR,
             "[aria-describedby=configure-copyright] button.fw-dark",

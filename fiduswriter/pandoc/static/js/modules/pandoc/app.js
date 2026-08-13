@@ -1,7 +1,7 @@
-import {formats} from "./constants"
-import {PandocConversionImporter} from "./importer"
+import {formats} from "@fiduswriter/pandoc/formats"
+import {PandocConversionImporter} from "@fiduswriter/pandoc/importer"
 
-import {registerImporter} from "../importer/register"
+import {registerImporter} from "@fiduswriter/frontend/documents/importer/register"
 
 export class AppPandoc {
     constructor(app) {

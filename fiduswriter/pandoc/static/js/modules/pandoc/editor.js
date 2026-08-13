@@ -1,31 +1,33 @@
 import {addProgress, gettext, shortFileTitle} from "fwtoolkit"
 
 const exportWithProgress = (editor, format, ext, mime, options) =>
-    import("./exporter").then(({PandocConversionExporter}) => {
-        const doc = editor.getDoc({changes: "acceptAllNoInsertions"})
-        const title = shortFileTitle(doc.title, doc.path || "")
-        const task = addProgress(
-            "info",
-            `${title}: ${gettext("Exporting via Pandoc...")}`,
-            {autoClose: 6000}
-        )
-        const exporter = new PandocConversionExporter(
-            format,
-            ext,
-            mime,
-            options,
-            doc,
-            editor.mod.db.bibDB,
-            editor.mod.db.imageDB,
-            editor.app.csl,
-            editor.docInfo.updated,
-            (message, percentage) => task.update(percentage, message)
-        )
-        return exporter.init().catch(error => {
-            task.close()
-            throw error
-        })
-    })
+    import("@fiduswriter/pandoc/exporter").then(
+        ({PandocConversionExporter}) => {
+            const doc = editor.getDoc({changes: "acceptAllNoInsertions"})
+            const title = shortFileTitle(doc.title, doc.path || "")
+            const task = addProgress(
+                "info",
+                `${title}: ${gettext("Exporting via Pandoc...")}`,
+                {autoClose: 6000}
+            )
+            const exporter = new PandocConversionExporter(
+                format,
+                ext,
+                mime,
+                options,
+                doc,
+                editor.mod.db.bibDB,
+                editor.mod.db.imageDB,
+                editor.app.csl,
+                editor.docInfo.updated,
+                (message, percentage) => task.update(percentage, message)
+            )
+            return exporter.init().catch(error => {
+                task.close()
+                throw error
+            })
+        }
+    )
 
 export class EditorPandoc {
     constructor(editor) {
