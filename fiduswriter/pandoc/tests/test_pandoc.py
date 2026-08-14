@@ -41,6 +41,7 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
     def test_export(self):
         self.login_user(self.user, self.driver, self.client)
         self.driver.get(self.base_url + "/")
+        self.driver.set_window_size(1920, 1080)
         # Create chapter one doc
         WebDriverWait(self.driver, self.wait_time).until(
             EC.element_to_be_clickable(
@@ -323,6 +324,9 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
                 (By.CSS_SELECTOR, "div.doc-body figure figcaption")
             )
         )
+        self.driver.execute_script(
+            "arguments[0].scrollIntoView({block: 'center'});", caption
+        )
         caption.click()
         caption.send_keys("Figure")
 
@@ -385,6 +389,9 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
                 (By.CSS_SELECTOR, "div.doc-body table caption")
             )
         )
+        self.driver.execute_script(
+            "arguments[0].scrollIntoView({block: 'center'});", caption
+        )
 
         caption.click()
 
@@ -393,7 +400,6 @@ class PandocTest(SeleniumHelper, ChannelsLiveServerTestCase):
         # export it from the editor.
 
         # Export as Markdown
-        self.driver.set_window_size(1920, 1080)
         self.driver.find_element(
             By.CSS_SELECTOR,
             '.header-nav-item[title="Export of the document contents"]',
