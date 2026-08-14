@@ -1,7 +1,7 @@
 {
     "name": "fiduswriter-pandoc-lint",
     "version": "1.0.0",
-    "description": "Linting tools for fiduswriter-pandoc",
+    "description": "Linting tools for fiduswriter-pandoc-plugin",
     "dependencies": {
         "acorn": "^8.10.0"
     }

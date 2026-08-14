@@ -28,8 +28,8 @@ jobs:
             else pip install https://github.com/fiduswriter/fiduswriter/archive/main.zip;
           fi
           if grep version pyproject.toml | grep -q "dev";
-            then pip install https://github.com/fiduswriter/fiduswriter-books/archive/develop.zip;
-            else pip install https://github.com/fiduswriter/fiduswriter-books/archive/main.zip;
+            then pip install https://github.com/fiduswriter/fiduswriter-books-plugin/archive/develop.zip;
+            else pip install https://github.com/fiduswriter/fiduswriter-books-plugin/archive/main.zip;
           fi
       - uses: pre-commit/action@v3.0.1
   test:
@@ -56,8 +56,8 @@ jobs:
             else pip install https://github.com/fiduswriter/fiduswriter/archive/main.zip;
           fi
           if grep version pyproject.toml | grep -q "dev";
-            then pip install https://github.com/fiduswriter/fiduswriter-books/archive/develop.zip;
-            else pip install https://github.com/fiduswriter/fiduswriter-books/archive/main.zip;
+            then pip install https://github.com/fiduswriter/fiduswriter-books-plugin/archive/develop.zip;
+            else pip install https://github.com/fiduswriter/fiduswriter-books-plugin/archive/main.zip;
           fi
           cd fiduswriter
           mv ../ci/configuration.py ./
