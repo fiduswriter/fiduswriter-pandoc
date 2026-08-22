@@ -1,7 +1,7 @@
 {
     dependencies: {
-        "@fiduswriter/pandoc": "^0.1.0",
-        "@fiduswriter/books-document": "^0.1.15",
+        "@fiduswriter/pandoc": "^0.1.2",
+        "@fiduswriter/books-document": "^0.1.22",
         "pandoc-wasm": "1.0.1"
     }
 }
