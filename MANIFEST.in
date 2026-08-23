@@ -1,5 +1,6 @@
 include LICENSE
 include README.md
 recursive-include fiduswriter/pandoc/static *
+recursive-include fiduswriter/pandoc/assets *
 recursive-include fiduswriter/pandoc/locale *
 include fiduswriter/pandoc/package.json5
