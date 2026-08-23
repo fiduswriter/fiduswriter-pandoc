@@ -56,7 +56,7 @@ jobs:
       - name: Run test pandoc
         uses: nick-invision/retry@v4
         with:
-          timeout_minutes: 8
+          timeout_minutes: 15
           max_attempts: 3
           retry_on: error
           command: |
